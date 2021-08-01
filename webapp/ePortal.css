@@ -1,0 +1,167 @@
+img {
+    max-width: 100%;
+}
+
+.top-box {
+    margin-top: 5vmin;
+    background-color: #007bff;
+    color: white;
+    font-family: helvetica;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+}
+
+.top-box h3 {
+    font-size: 1.5rem;
+}
+
+.top-box p {
+    font-size: 1rem;
+}
+
+.box-text {
+    width: 50%;
+}
+
+.box-text button {
+    background-color: white;
+    border: none;
+    padding: 1em;
+    font-size: 0.8rem;
+    color: #007bff;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.box-image {
+    width: 30%;
+}
+
+.main-box {
+
+    width: 90%;
+    
+    display: flex;
+    margin-top: 10vmin;
+    justify-content: space-evenly;
+    
+}
+
+.left-box {
+    width: 60%;
+}
+
+/*---END---*/
+
+
+
+
+/*VIDEO PAGE*/
+.video-page{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.video-img-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.video-set{
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 5px 5px 10px lightgray;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10vmin;
+    align-items: center;
+}
+
+.video-img{
+    position: relative;
+    width: 30%;
+}
+
+.play-icon{
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    color: #007bff;
+}
+
+.video-img img{
+    height: 200px;
+}
+
+.video-desc{
+    width: 60%;
+    border-left: 2px solid black;
+    padding-left: 1em;
+}
+
+
+/*Designing where should the video play and how it should play*/
+
+.video-icon-capsule{
+    position: relative;
+}
+
+.close-btn{
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 3%;
+    color: lightskyblue;
+}
+
+
+
+.hide{
+    display: none;
+}
+
+.video-player{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*---VIDEO PG END---*/
+
+
+
+
+@media(max-width:700px) {
+
+    .video-set{
+        display: block;
+        box-shadow: 5px 5px 10px lightgray;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10vmin;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    .video-img,.video-desc{
+        max-width: 100%;
+        width: unset;
+    }
+
+
+    .video-desc{
+        border-left: unset;
+        padding-left: unset;
+        padding: 1em;
+    }
+}
+

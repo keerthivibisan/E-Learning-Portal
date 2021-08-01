@@ -1,0 +1,48 @@
+package databaseConnect;
+
+import java.sql.*;
+
+import Eportal.servlet.FileUploadInfoCarrier;
+
+public class NewModuleUpload {
+
+	String url = "jdbc:mysql://localhost:3306/ePortal";
+	String dbname = "root";
+	String dbpass = "vibi123";
+	
+	public boolean CourseRegister(FileUploadInfoCarrier obj)
+	{
+		boolean flag = false;
+		
+		try
+		{
+			String Cname = obj.getCname();
+			int UID = obj.getUID();
+			String Fpath = obj.getFpath();
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, dbname, dbpass);
+			String query = "insert into courses values(null,?,?,?)";
+			
+			PreparedStatement st = con.prepareStatement(query);
+			st.setString(1, Cname);
+			st.setString(2, Fpath);
+			st.setInt(3, UID);
+			
+			int c = st.executeUpdate();
+			
+			flag = true;
+			
+			st.close();
+			con.close();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return(flag);
+	}
+	
+}

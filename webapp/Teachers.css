@@ -1,0 +1,247 @@
+/*REGISTRATION PAGE*/
+.content{
+    height: 100vh;
+}
+
+.sharp-RL{
+    background-color: black;
+    color: white;
+    height: 10vmin;
+}
+
+.fit-content{
+    width: fit-content;
+    margin: auto;
+}
+.fit-content h3{
+    padding-top: 0.4em;
+    letter-spacing: 1.5px;
+}
+
+.side-img{
+    max-width: 100%;
+    max-height: fit-content;
+    height: 600px;
+}
+/*REGISTRATION PAGE END*/
+
+
+/*-----MENU BAR START-----*/
+.menu-top{
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+    background-color: #032C48;
+    height: 10vmin;
+    color: white;
+}
+
+.menu-logo{
+    flex-grow: 1;
+    text-align: center;
+    letter-spacing: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+}
+
+.menu-logo p {
+    margin: auto;
+}
+
+.toogle-btn{
+    margin-left: 1rem;
+}
+
+.toogle-btn i{
+    cursor: pointer;
+}
+
+.menu-side{
+    /* border: 2px solid red; */
+    /* box-shadow: 5px 5px 5px blue; */
+    display: block;
+    width: fit-content;
+    height: 90vh;
+    background-color: #063146;
+
+    position: absolute;
+}
+
+.menu-bar-top{
+    width: 100%;
+    background-color: #050a30;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0.3em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-bar-item{
+   margin: 0 auto;
+   width: 100%;
+   padding: 0.5em;
+   /* border: 2px solid yellow; */
+   border-top: 1px solid rgba(255,255, 255, .1);
+   border-bottom: 1px solid black;
+   text-align: center;
+}
+
+.menu-bar-link{
+    text-decoration: none;
+    color: white;
+    line-height: 35px;
+    padding: 0 6em;
+}
+
+.menu-bar-link i {
+    margin-right: 8px;
+}
+
+.logout-btn{
+    border: none;
+    color: white;
+    line-height: 25px;
+    padding: 0 6em;
+    background:none;
+}
+
+.menu-bar-link:hover, .active, .logout-btn:hover{
+    color: white;
+    margin-left: 10px;
+    transition: all 0.3s;
+    border-left: 3px solid white;
+    border-left-style:dashed;
+}
+
+
+.hide{
+    display: none;
+}
+
+/* ----- Side BAR end -----*/
+
+/*Home Start*/
+.Tintro
+{
+    width: 60vmax;
+    margin: auto;
+}
+
+/*-----HOME ENDDD-----*/
+
+/*UPLOAD PAGE START*/
+
+.upload-content{
+    height: 100vh;
+    position: relative;
+}
+
+.bg-grey{
+    background-color: #f1f1f2;
+    padding: 1.5em;
+    color: black;
+}
+
+.bg-grey p {
+    font-size: 1.1rem;
+}
+
+.form-contents{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img-upload{
+    max-height: 500px;
+}
+
+.upload-card-deck{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.upload-card{
+    border: 2px solid #6C0BA9;
+    width: 150px;
+    height: 180px;
+    padding: 1em;
+    box-shadow: 3px 3px 5px lightgray;
+    border-radius: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-card a{
+    text-decoration: none;
+    z-index: 1;
+}
+
+.upload-card-text{
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.bg-orchid
+{
+    background-color: #7e1e80;
+}
+
+.bg-tangerine
+{
+    background-color: #eba408;
+}
+
+
+/*UPLOAD PAGE END*/
+
+
+/*Classroom page Stsrt*/
+table{
+    text-align: center;
+}
+
+.table tr:nth-child(even)
+{
+    background-color: #E4E5E8;
+}
+
+.table tr:hover{
+    background-color:#1C4670;
+    color: white;
+}
+/*------Classroom page END------*/
+
+
+
+
+@media(max-width: 950px)
+{
+
+    .form-contents{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    }
+
+    .upload-card-deck{
+        display: block;
+    }
+
+    .upload-card{
+        margin-top: 5vmin;
+    }
+
+}
+
+
