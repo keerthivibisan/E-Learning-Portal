@@ -136,7 +136,7 @@
 	
 	
 	<%!
-	int i,j;
+	int i,j,x;
 	LinkedList <Integer> CId = new LinkedList <Integer> ();
 	LinkedList <String> Cname = new LinkedList <String> ();
 	
@@ -160,16 +160,6 @@
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, nulla. Ea autem voluptatibus deleniti accusamus, quasi ex aliquid enim, id consequatur ipsa atque reiciendis vel nam reprehenderit temporibus fugiat? Sequi.</p>
         </div>
 
-        <div class="mt-4 card">
-            <table class="table">
-                <tr>
-                    <th>SID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Course</th>
-                    <th>Course ID</th>
-                </tr>
 	<%
 	//POJO
 	TmyUploadsCarrier classroom = new TmyUploadsCarrier();
@@ -186,14 +176,44 @@
 		
 		CidArray = CId.toArray(new Integer[0]);
 		CnameArray = Cname.toArray(new String[0]);
-		
+		//System.out.println(CnameArray[1]);
 		int p = CidArray.length;
+	%>
+	
+		<div class="container mt-4">
+        	 Filter by Course:
+             <select id="selectfield">
+             	 <option value="All" class="text-center" selected>All</option>
+     <%
+     for(x = 0;x<p;x++)
+     {
+    	 
+     %>
+     			<option value=<%= CnameArray[x]%>><%= CnameArray[x]%></option> 
+	
+	<%
+     }
+	%>
+	
+			</select>
+		</div>
 		
+		<div class="mt-3 card">
+            <table id="tabledata" class="table">
+                <tr>
+                    <th>SID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Course</th>
+                    <th>Course ID</th>
+                </tr>
+	<%
 		for(i = 0; i < p; i++)
 		{
 			TStudentGetterDAO data = new TStudentGetterDAO();
 			boolean flag3 = data.CourseStudentGet(CidArray[i], classroom);
-			
+	
 			if(flag3)
 			{
 				SId = classroom.getSId();
@@ -213,7 +233,7 @@
 				
 	%>
 
-	                <tr>
+	                <tr position= <%= CnameArray[i]%>>
 	                    <td><%= StuidArray[j]%></td>
 	                    <td><%= StuNameArray[j]%></td>
 	                    <td><%= StuEmailArray[j]%></td>
@@ -236,6 +256,7 @@
 
      <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
    <script>
 
@@ -254,6 +275,44 @@
        }
 
    </script>
+   
+       <!--For UserType-->
+    <script>
+
+        $(document).ready(function(){
+
+            function addRemoveClass(theRows){
+                theRows.removeClass("odd even");
+                //theRows.filter(":odd").addClass("odd");
+                //theRows.filter(":even").addClass("even");
+            }
+
+            var rows = $("table#tabledata tr:not(:first-child)");
+
+            addRemoveClass(rows);
+
+           $("#selectfield").on("change",function(){
+            var selected = this.value;
+
+                //To check other thal all
+                if(selected != "All")
+                {
+                    //show if position equal selected
+                    rows.filter("[position="+selected+"]").show();
+                    //hide other than selected
+                    rows.not("[position="+selected+"]").hide();
+                    var visibleRows=rows.filter("[position="+selected+"]");
+                    addRemoveClass(visibleRows);
+                }
+
+                //If selected is all to show everything
+                else{
+                    rows.show();
+                    addRemoveClass(rows);
+                 }
+           });
+        });
+    </script>
 	
 </body>
 </html>
