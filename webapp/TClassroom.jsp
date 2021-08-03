@@ -167,7 +167,7 @@
 	//Getting Teachers Courses
 	TmyUploadsGet courses = new TmyUploadsGet();
 	
-	boolean flag2 = courses.getMyUploads(5, classroom);
+	boolean flag2 = courses.getMyUploads(TuID, classroom);
 	
 	if(flag2)
 	{
