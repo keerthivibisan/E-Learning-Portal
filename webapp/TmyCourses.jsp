@@ -208,18 +208,24 @@
     %>
     
 			<div class="card mb-3">
-        		<div class="row g-0">
+				<div class="row g-0">
           			<div class="col-md-4">
-            			<img src="book.jpg" class="img-fluid rounded-start" alt="image">
+            			<img src="ePortal.png" class="img-fluid rounded-start" alt="...">
           			</div>
-          			<div class="col-md-8">
+          			<div class="col-md-8">        		
             			<div class="card-body">
-             			 	<h5 class="card-title"><%= Cnm[i]%></h5>
-              				<p class="card-text"><strong>UID: <%= Cid[i]%></strong></p>
-             				<p class="card-text">Allocated File: <%= Fpath[i]%></p>
-             				<p class="text-muted">(Don't share the file path with others, it can lead to deletion of your content by others without you knowledge. The only purpose of displaying is, it will be easy for you to raise if any there is any issue and can be solved faster.)</p>
-             				<p class="h5">What you have uploaded in this Module:</p>
+             			 	<h5 class="card-title">Name: <%= Cnm[i]%></h5>
+              				<p class="card-text">UID: <%= Cid[i]%></p>
+            				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum ipsum sunt laborum eos vero minima magni sapiente omnis debitis. Vero incidunt mollitia omnis suscipit nisi fugiat sunt dignissimos! Voluptas?</p>
+             				<!-- p class="h5">What you have uploaded in this Module:</p -->
              				
+             				<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target= <%= "#offcanvasRigh"+Cnm[i]%> aria-controls="offcanvasRight">Show More</button>
+             				<div class="offcanvas offcanvas-end" tabindex="-1" id=<%= "offcanvasRigh"+Cnm[i]%> aria-labelledby="offcanvasRightLabel">	
+             				<div class="offcanvas-header">
+                  				<h5 id="offcanvasRightLabel">You have Uploaded</h5>
+                  				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">		
     	<%
 		File fobj = new File(Fpath[i]);
 		boolean exist = fobj.exists();
@@ -233,32 +239,43 @@
 				String Fname = item.getName();
 				int dot = Fname.lastIndexOf(".");
 				String str = Fname.substring(dot+1);
-			
+
 				if(str.equals("mp4"))
 				{
-					Filepath = item.getAbsolutePath();
-					System.out.println(Filepath);
+					String path = item.getAbsolutePath();
+					int z = path.indexOf("Courses");
+					//System.out.println(i);
+					Filepath = path.substring(z);
+					//Filepath = "Courses\\JAVA(5)\\sample2.mp4";
+					//System.out.println(Filepath);
 		%>
-				<video src=<%= Filepath%> controls autoplay>Not Supported Format</video>
+				<video src=<%= Filepath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
 	
 		<%
 			}
 			
 			else if(str.equals("jpg") || str.equals("jpeg") || str.equals("png"))
 			{
-				Filepath = item.getAbsolutePath();
+				String path = item.getAbsolutePath();
+				int z = path.indexOf("Courses");
+				Filepath = path.substring(z);
+				System.out.println(Filepath );
 		%>
-				<img src= <%= Filepath%> class="img-fluid" alt="Your Upload">
+				<img src= <%= Filepath%> class="img-fluid" alt="Your Upload" width="300">
 	
 	<%
 			}
 	%>
-	
+			
 	<%
 		}
+	%>
+								</div>
+							</div>
+	<%
 	}
 	%>
-             				
+             			
              			
             			</div>
           			</div>
@@ -270,7 +287,7 @@
     }
     %>
     
-    </div>
+	</div>
     
     
      <!-- JavaScript Bundle with Popper -->
