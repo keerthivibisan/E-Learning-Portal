@@ -116,6 +116,10 @@
     border-left-style:dashed;
 }
 
+.fas{
+    color: lightgray;
+}
+
 
 .hide{
     display: none;
@@ -129,7 +133,6 @@
     width: 60vmax;
     margin: auto;
 }
-
 /*-----HOME ENDDD-----*/
 
 /*UPLOAD PAGE START*/
