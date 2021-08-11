@@ -245,9 +245,10 @@
 					String path = item.getAbsolutePath();
 					int z = path.indexOf("Courses");
 					//System.out.println(i);
-					Filepath = path.substring(z);
+					String relativePath = path.substring(z);
+					Filepath = relativePath.replace('\\','/');
 					//Filepath = "Courses\\JAVA(5)\\sample2.mp4";
-					//System.out.println(Filepath);
+					System.out.println(Filepath);
 		%>
 				<video src=<%= Filepath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
 	
@@ -258,7 +259,8 @@
 			{
 				String path = item.getAbsolutePath();
 				int z = path.indexOf("Courses");
-				Filepath = path.substring(z);
+				String relativePath = path.substring(z);
+				Filepath = relativePath.replace('\\','/');
 				System.out.println(Filepath );
 		%>
 				<img src= <%= Filepath%> class="img-fluid" alt="Your Upload" width="300">
