@@ -15,16 +15,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 
-<link rel="stylesheet" href="ePortal.css">
-
-<!--BootStrap 4 CDN-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
+	<!--BootStrap 4 CDN-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	 <!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	
+	
+	<link rel="stylesheet" href="videoLessonPage.css">
+	
 </head>
 <body>
+
+	<div class="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden h3">Loading...</span>
+        </div>
+    </div>
+	
 
 	
 	<%!
@@ -33,6 +41,7 @@
 	int RollNo;
 	String Email;
 	String PNumber;
+	String CourseName = "Java";
 	%>
 	
 	<%
@@ -55,6 +64,8 @@
 	String UEmail = ses.getAttribute("useremail").toString();
 
 	NavbarProfileInfo fetch = new NavbarProfileInfo();
+	ses.setAttribute("UserDetails", fetch);
+	ses.setAttribute("CourseName", CourseName);
 	
 	NavbarProfileFetch obj = new NavbarProfileFetch();
 	obj.ProfileFetch(UEmail, fetch);
@@ -66,9 +77,9 @@
 	%>
 	
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
             <div class="container">
-            <a href="/" class="navbar-brand">
+            <a href="#" class="navbar-brand">
                 
                 SHARP</a>
 
@@ -137,71 +148,110 @@
         </nav>
     </header>
 	
-	<div class="video-page">
-            <div class="video-img-container">
-                <div class="video-set">
-                    <div class="video-img">
-                        <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="image">
-                        <div class="play-icon"><i class="fas fa-play fa-2x" onclick="playVideo()"></i></div>
-                    </div>
-
-                    <div class="video-desc">
-                        <h3>1st Lesson</h3>
-                        <p>This is Your first html lesson. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, cumque debitis repellendus optio, molestiae impedit earum itaque eligendi nobis id, aliquam aspernatur non iusto nisi officia. Quisquam cupiditate neque nihil.</p>
-                    </div>
-
-                </div>
-
-                <div class="video-set">
-                    <div class="video-img">
-                        <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="image">
-
-                        <div class="play-icon"><i class="fas fa-play fa-2x" onclick="playVideo('Courses/JAVA/sample2.mp4')"></i>    
-                        </div>
-                    </div>
-
-                    <div class="video-desc">
-                        <h3>2nd Lesson</h3>
-                        <p>This is Your second html lesson. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, cumque debitis repellendus optio, molestiae impedit earum itaque eligendi nobis id, aliquam aspernatur non iusto nisi officia. Quisquam cupiditate neque nihil.</p>
-                    </div>
-
-                </div>
+	<!-- ***** VIDEO Features ***** -->
+	    <div class="content row-Flex">
+        <!--Side Lessons SHOWCASE-->
+        <div id="Locked-boxes" class="lesson-boxes card">
+            <div class="box">
+                <p class="active" onclick="ShowVideo('Courses/JAVA/sample2.mp4','JavaV1')">Lesson 1</p>
+            </div>
+            <div class="box">
+                <p onclick="ShowVideo('Courses/JAVA/sample.mp4','JavaV2')">Lesson 2</p>
+             <%
+             	//If user saw before video unlocks next
+             	StudentVideoRegister check = new StudentVideoRegister();
+             	boolean flag = check.AlreadySaw(RollNo, "JavaV1");
+             	
+             	if(flag == false)
+             	{
+             		
+             %>
+                <div class="box-lock"><i class="fas fa-lock"></i></div>
+                
+             <%
+             	}
+             %>
+            </div>
+            <div class="box">
+                <p>Lesson 3</p>
+                <div class="box-lock"><i class="fas fa-lock"></i></div>
             </div>
 
-        <div id="video-player" class="video-player hide">
-            <div class="video-icon-capsule">
-                <video width="100%" id="myVideo" class="video " src="D:\JAVA-EE-workspace\E-Portal\src\main\webapp\Courses\JAVA\sample2.mp4" controls autoplay>Video format not Supported</video>
-                <i class="fas fa-times-circle fa-2x close-btn" onclick="StopVideo()"></i>
+            <div class="box">
+                <p>Lesson 4</p>
+                <div class="box-lock"><i class="fas fa-lock"></i></div>
+            </div>
+
+            <div class="box">
+                <p>Lesson 5</p>
+                <div class="box-lock"><i class="fas fa-lock"></i></div>
             </div>
         </div>
+
+        <!--Video Player-->
+        <div class="video-c">
+
+            <div class="videoWITHControl">
+
+                <video id = "video" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" class="video" onplay="StartTimer()"></video>
+
+                <div class="controls">
+                    <div class="blue">
+                        <div class="blue-liquid"></div>
+                    </div>
+
+                    <div class="video-buttons">
+                        <div class="row-Flex">
+                        
+                            <div id="Pause-Play" class="play-btn marging-left"></div>
+                            <div id="RewindBack" class="rewindBack-btn marging-left" onclick="rewindBack()"></div>
+                       		<div id="Forward" class="Forward-btn marging-left hide" onclick="Forward()"></div>
+                        
+                        </div>
+                        
+                        <div id="FullScreen" class="fullScreen-btn"></div>
+                    </div>
+
+                </div>
+
+            </div>
             
+            <div class="watch-timer">
+                <p class="h5 text-muted"><i class="fas fa-stopwatch text-warning"></i> Watch Time</p>
+                <p><span id="runningTime"  class="text-success">0.00</span> / <span id="TotalTime" class="text-danger">0.00</span></p>
+                <small class="text-muted">(Watch this lesson fully to Unlock next)</small>
+            </div>
+    
+            <!-- <div class="system-info">
+                <h5>Note: </h5>
+                <ul>
+                    <li>You can Forward or Skip the videos.</li>
+                    <li>you will be able to next video only after watching this Lesson fully.</li>
+                </ul>
+            </div> -->
+        </div>
+
     </div>
-	
-<!-- JavaScript Bundle with Popper -->
+
+   <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+    <script src="VideoPlayer.js"></script>
     <script>
 
-        let videoPlayer = document.getElementById("video-player");
-        let myVideo = document.getElementById("myVideo");
-
-        function StopVideo() {
-            videoPlayer.classList.add('hide');
+        let loader = document.querySelector(".loader");
+        window.addEventListener("load", vanish);
+    
+        function vanish()
+        {
+            loader.classList.add('disappear');
         }
-
-        function playVideo(file) {
-            myVideo.src = file;
-            videoPlayer.classList.remove('hide');
-        }
-
+    
+    
     </script>
-
-
-
 </body>
 </html>
