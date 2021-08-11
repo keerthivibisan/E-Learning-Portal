@@ -1,0 +1,233 @@
+/*PRE LOADER*/
+.loader{
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disappear{
+    animation: fadeaway 0.7s forwards;
+}
+
+@keyframes fadeaway{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*-----PRE LOADER End-----*/
+
+.user-icon{
+	color: lightgray;	
+}
+
+.hide{
+	visibility: hidden;
+}
+
+.row-Flex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.marging-left{
+    margin-left: 0.6em;
+}
+
+.content{
+    width: 90%;
+    height: 100vh;
+    /* border: 2px solid red; */
+    margin: auto;
+
+    /*----------------*/
+    position: relative;
+}
+
+/*----- SIDE LESSON BOX-----*/
+.lesson-boxes{
+    /* background-color: lightgray; */
+    height: 100%;
+}
+
+.box{
+    padding: 0 7em;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    padding-top: 13px;
+    position: relative;
+    /* border: 2px solid red; */
+}
+
+.box-lock{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-lock i{
+    font-size: 2rem;
+}
+
+.box p{
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.box p:hover
+{
+    transform: scale(1.5);
+    transition: 0.2s;
+}
+/*----- SIDE LESSON BOX ENDDDDDD-----*/
+
+
+
+
+
+/*VIDEO PLAYER*/
+.video-c{
+    /* border: 2px solid green; */
+    /* flex-grow: 1; */
+    width: 70%;
+    /*For inner video n texts*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video{
+    width: 100%;
+}
+
+.videoWITHControl{
+    position: relative;
+    margin-bottom: 5vmin;
+    /*To hide Controls bar*/
+    overflow: hidden;
+}
+
+/*This Contains all buttons pause play*/
+.controls{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    /*Making it to go below video so we can hide it using overflow and show on hover*/
+    transform: translateY(100%) translateY(-5.4px);
+}
+
+.blue{
+ background: black;
+ width: 100%;
+ bottom: 0;
+ height: 6px;
+}
+
+.blue-liquid{
+    background: #007bff;
+    height: 100%;
+
+    /*To Smoothen when the width changes with Java Script*/
+    transition: all 0.8s;
+    /* width: 100%; */
+}
+
+.video-buttons{
+    bottom: 0;
+    background: black;
+    opacity: 1;
+    width: 100%;
+    height: 7vmin;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.play-btn::before{
+    content: "\f144";
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.pause::before{
+    content: "\f28b";
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.Forward-btn::before{
+    content: "\f04e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+
+}
+
+.fullScreen-btn::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f065";
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.rewindBack-btn::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f04a";
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.videoWITHControl:hover .controls{
+    transform: translateY(0);
+    transition: all 0.5s;
+}
+/*--------------This Contains all buttons pause play END---------------*/
+
+.watch-timer{
+    /* border: 2px solid violet; */
+    text-align: right;
+    width: 80%;
+}
+
+/* .system-info{
+    width: 80%;
+    margin: 5px auto;
+} */
+/*------VIDEO PLAYER END------*/
+
+
+
+
+/*HIDING VIDEO CONTROLS IN FULLSCREEN*/
+::-webkit-media-controls {
+    display:none !important;
+  }
