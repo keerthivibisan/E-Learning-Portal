@@ -64,7 +64,7 @@
 	String UEmail = ses.getAttribute("useremail").toString();
 
 	NavbarProfileInfo fetch = new NavbarProfileInfo();
-	
+	ses.setAttribute("GamifySupport", fetch);
 	NavbarProfileFetch obj = new NavbarProfileFetch();
 	obj.ProfileFetch(UEmail, fetch);
 	
@@ -172,11 +172,32 @@
                             <span class="badge bs-color badge-pill">Play & Win</span>
                         </p>
                         <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus ab aliquam, cum asperiores quo, obcaecati ex nostrum libero alias quasi veniam ullam dolore at vel. Eos voluptatem dolorem aliquam necessitatibus?</p>
-                        <p class="card-text">
-                            <small class="text-muted float-right">25 more seats Left</small>
-                        </p>
+                    
                         <div class="clearfix"></div>
-                        <a href="#" class="btn btn-primary btn-block mt-2">Play</a>
+                        
+                        <%
+                        //Checking for already played
+                        GamifyRegister play = new GamifyRegister();
+                        boolean result = play.AlreadyAttended(RollNo);
+                        		
+                        if(result)
+                        {
+                        	
+                        %>
+                        <a href="#" class="btn btn-primary btn-block mt-2">Completed</a>
+                        <%
+                        }
+                        
+                        else
+                        {
+                        %>
+                        
+                        <a href="Gamification1.jsp" class="btn btn-primary btn-block mt-2">Play</a>
+                    
+                    	<%
+                        }
+                    	%>
+                    	
                     </div>
                 </div>
             </div>
@@ -194,7 +215,7 @@ if(checkCourse.displayCourse(RollNo))
     <!--Your Learnings Start-->
     
         <div class="card mt-4" style="width: 18rem;">
-            <img src="https://hotforsecurity.bitdefender.com/wp-content/uploads/2013/02/java-logo.png" alt="Java" classs="card-img-top">
+            <img src="https://techbooky.com/wp-content/uploads/2019/10/java-logo.png" alt="Java" classs="card-img-top">
 
             <div class="card-body">
                 <h5 class="card-title">Learn JAVA</h5>
