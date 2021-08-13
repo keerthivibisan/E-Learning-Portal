@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Courses</title>
 
       <!--BootStrap 4 CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="ePortal.css">
 
 	<style>
 	  .user-icon{
@@ -72,7 +72,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-            <a href="/" class="navbar-brand">
+            <a href="" class="navbar-brand logo">
                 SHARP
             </a>
 
@@ -95,10 +95,6 @@
 
                     <li class="nav-item">
                         <a href="about.jsp" class="nav-link">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
                     </li>
 
                     <li class="nav-item">
@@ -145,7 +141,7 @@
             <h5>Featured Courses:</h5>
             <p>Now there is Free Trail for these Featured courses for 7-Days</p>
         </div>
-        <a href="#" type="button" class="btn btn-outline-danger float-right">Enroll Now</a> 
+        <a href="#" type="button" class="btn btn-outline-danger float-right">Enroll Below</a> 
         <div class="clearfix"></div>
     </div>
 
@@ -154,7 +150,7 @@
         <div class="card-deck mb-4">
             <!--col1-->
             <div class="card" style="width: 18rem;">
-                <img src="https://hotforsecurity.bitdefender.com/wp-content/uploads/2013/02/java-logo.png" alt="Java" classs="card-img-top">
+                <img src="https://techbooky.com/wp-content/uploads/2019/10/java-logo.png" alt="Java" classs="card-img-top">
    
                 <div class="card-body">
                     <h5 class="card-title">Learn JAVA</h5>
@@ -179,7 +175,7 @@
                    <span class="badge badge-primary">Rating</span>
                     <span class="badge badge-warning">4/5</span>
                     <p class="card-text mt-2">Learn Python From Basics to Advanced and work on Projects with mentors Support.</p>
-                    <a href="#" type="button" class="btn btn-primary btn-block">Enroll Now</a>
+                    <a href="#" type="button" class="btn btn-primary btn-block">Available Soon</a>
                 </div>
    
                 <div class="card-footer">
@@ -198,7 +194,7 @@
                    <span class="badge badge-primary">Rating</span>
                     <span class="badge badge-warning">4.5/5</span>
                     <p class="card-text mt-2">Learn MySQl From Basics to Advanced and work on Projects with mentors Support.</p>
-                    <a href="#" type="button" class="btn btn-primary btn-block">Enroll Now</a>
+                    <a href="#" type="button" class="btn btn-primary btn-block">Available Soon</a>
                 </div>
    
                 <div class="card-footer">

@@ -62,7 +62,7 @@ public class CheckCode extends HttpServlet {
 		{
 			rd = req.getRequestDispatcher("EnterVerifyCode.jsp");
 			rd.include(req,res);
-			out.println("<span style='color: red'><center>Incorrect Code</center></span>");
+			out.println("<span style='color: red; position: absolute; top:50%; right:25%;'>Incorrect Code</span>");
 		}
 	}
 

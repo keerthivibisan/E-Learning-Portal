@@ -30,7 +30,7 @@ public class VerifyCodeSender extends HttpServlet {
 		{
 			RequestDispatcher rd = req.getRequestDispatcher("register.html");
 			rd.include(req, res);
-			out.println("<span style='color: red'><center>User Already Registered TRY Login</center></span>");
+			out.println("<span style='color: red; position: absolute; top:90%; right:18%;'>User Already Registered TRY Login</span>");
 			
 		}
 		

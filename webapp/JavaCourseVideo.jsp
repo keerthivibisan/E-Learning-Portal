@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>JAVA</title>
 
 	<!--BootStrap 4 CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -79,7 +79,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
             <div class="container">
-            <a href="#" class="navbar-brand">
+            <a href="" class="navbar-brand logo">
                 
                 SHARP</a>
 
@@ -104,9 +104,6 @@
                         <a href="about.jsp" class="nav-link">About</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
-                    </li>
                     
                     <li class="nav-item">
                         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
@@ -189,7 +186,7 @@
         </div>
 
         <!--Video Player-->
-        <div class="video-c">
+        <div class="video-c mt-3">
 
             <div class="videoWITHControl">
 

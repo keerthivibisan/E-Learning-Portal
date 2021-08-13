@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="ePortal.css">
 
     <style>
         .bs-color{
@@ -77,7 +77,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-            <a href="/" class="navbar-brand">
+            <a href="" class="navbar-brand logo">
                 
                 SHARP</a>
 
@@ -100,10 +100,6 @@
 
                     <li class="nav-item">
                         <a href="about.jsp" class="nav-link">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
                     </li>
                     
                     <li class="nav-item">
@@ -166,25 +162,28 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Gamification <span class="badge badge-primary">Earn a Badge</span></h5>
-                        <p class="class-text">
-                            <span class="badge badge-success badge-pill">Gamification</span>
-                            <span class="badge bs-color badge-pill">Play & Win</span>
-                        </p>
-                        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus ab aliquam, cum asperiores quo, obcaecati ex nostrum libero alias quasi veniam ullam dolore at vel. Eos voluptatem dolorem aliquam necessitatibus?</p>
-                    
+                        <h5 class="card-title">Gamification <span class="badge bs-color badge-pill">Play</span></h5>
+            
+                        <p class="card-text">This is a simple HTML Quiz conducted to give a basic idea on HTML tag's.</p>
+                    	<p class="card-text">What do you get on attending this ?</p>
+                    	<p class="card-text">Your Score doesn't matter. If you are new to HTML you can get a little knowledge about it and develop it based upon your interest. If you are familiar with HTML you can test your Skill's.</p>
                         <div class="clearfix"></div>
+                        <%!
+                        int Score;
+                        %>
                         
                         <%
+                        GamifyJSPScoreCarrier score = new GamifyJSPScoreCarrier();
                         //Checking for already played
-                        GamifyRegister play = new GamifyRegister();
-                        boolean result = play.AlreadyAttended(RollNo);
-                        		
+                        GamifyJSPSupport play = new GamifyJSPSupport();
+                        boolean result = play.AlreadyAttended(RollNo,score);
+                        
+                        Score = score.getScore();		
                         if(result)
                         {
                         	
                         %>
-                        <a href="#" class="btn btn-primary btn-block mt-2">Completed</a>
+                        <a href="#" class="btn btn-primary btn-block mt-2">You Scored: <%= Score%>/5</a>
                         <%
                         }
                         

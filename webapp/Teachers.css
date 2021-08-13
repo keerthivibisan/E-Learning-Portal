@@ -111,7 +111,7 @@
 .menu-bar-link:hover, .active, .logout-btn:hover{
     color: white;
     margin-left: 10px;
-    transition: all 0.3s;
+    transition: all 0.2s;
     border-left: 3px solid white;
     border-left-style:dashed;
 }

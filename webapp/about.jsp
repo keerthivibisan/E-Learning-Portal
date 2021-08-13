@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>About</title>
 
        <!--BootStrap 4 CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -76,7 +76,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-            <a href="/" class="navbar-brand">
+            <a href="" class="navbar-brand logo">
                 SHARP
             </a>
 
@@ -99,10 +99,6 @@
 
                     <li class="nav-item active">
                         <a href="about.jsp" class="nav-link">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
                     </li>
 
                      <li class="nav-item">
@@ -151,9 +147,14 @@
         <div class="top-box">
             <div class="box-text">
                 <h2>SHARP</h2>
-                <h3>Yourself with us</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias alias voluptate quos porro ducimus quia quisquam, beatae qui ipsa natus modi sunt aliquid repudiandae odio veniam, perspiciatis itaque facilis pariatur.</p>
-                <button>Get Your Access</button>
+                <p>This is an Online E-Learning portal software created by (Cloud Computing Lab) Student's at Bannari Amman Institute of Technology, Erode, Tamilnadu.</p>
+          
+               	<ol>
+               		<li>Keerthi Vibisan S</li>
+               		<li>Sujeeth G</li>
+               		<li>Sandeep Kumar V</li>
+               		<li>Kamaleswaran S</li>
+               	</ol>
             </div>
             <div class="box-image">
                 <img  src="ePortal.png" alt="">

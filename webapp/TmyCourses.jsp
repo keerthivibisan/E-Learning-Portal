@@ -246,7 +246,7 @@
 					int z = path.indexOf("Courses");
 					//System.out.println(i);
 					String relativePath = path.substring(z);
-					Filepath = relativePath.replace('\\','/');
+					Filepath = "./"+relativePath.replace('\\','/');
 					//Filepath = "Courses\\JAVA(5)\\sample2.mp4";
 					System.out.println(Filepath);
 		%>
@@ -260,7 +260,7 @@
 				String path = item.getAbsolutePath();
 				int z = path.indexOf("Courses");
 				String relativePath = path.substring(z);
-				Filepath = relativePath.replace('\\','/');
+				Filepath = "./"+relativePath.replace('\\','/');
 				System.out.println(Filepath );
 		%>
 				<img src= <%= Filepath%> class="img-fluid" alt="Your Upload" width="300">

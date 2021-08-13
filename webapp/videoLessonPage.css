@@ -1,3 +1,10 @@
+.logo{
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+}
+
+
 /*PRE LOADER*/
 .loader{
     position: fixed;
@@ -46,7 +53,9 @@
     height: 100vh;
     /* border: 2px solid red; */
     margin: auto;
-
+	display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     /*----------------*/
     position: relative;
 }
@@ -230,4 +239,20 @@
 /*HIDING VIDEO CONTROLS IN FULLSCREEN*/
 ::-webkit-media-controls {
     display:none !important;
+  }
+  
+  
+  
+  @media(max-width: 1000px)
+  {
+    .content{
+        display: block;
+
+    }
+    
+    
+    .video-c{
+    width: 100%;
+    }
+    
   }

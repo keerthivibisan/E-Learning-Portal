@@ -37,7 +37,7 @@ public class verify extends HttpServlet {
 			PrintWriter out = res.getWriter();
 			RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
 			rd.include(req, res);
-			out.println("<center><span style='color: red'>Username or Password not Correct</span></center>");
+			out.println("<span style='color: red; position: absolute; top:58%; right:20%;'>Useremail or Password incorrect</span>");
 			
 		}
 	}

@@ -17,97 +17,115 @@
             width: 100%;
             float: none;
         }
+        
+        
+        @media(max-width: 700px)
+		{
+			.no-mobile{
+				visiblity: hidden;
+				display: none;
+			}
+		}
     </style>
 
 </head>
 <body>
 
-    <div class="container d-flex justify-content-center align-items-center mt-2">
-       <div class="d-flex flex-column justify-content-center align-items-center">
-           <p class="h4">SHARP</p>
-           <p class="text-muted">Yourself with us</p>
-       </div>
-    </div>
+	<div class="bg-primary text-center text-white mb-3 p-1" style= "height: fit-content">
+		<p class="h2">SHARP</p>
+	</div>
+	
+	<section class="row">
+    	<div class="col-sm-1 no-mobile"></div>
+    	<div class="col-sm-4 no-mobile"><img src="studentLoginR.jpg" alt="image" class="img-fluid"></div>
+		<div class="col-sm-7">
+			<div class="container mt-3">
+		        <div class="row">
+		            <div class="col-sm-12">
+		                <div class="card">
+		                    <div class="card-header text-center">
+		                        <p class="h5">Registration Form</p>
+		                    </div>
+		                    <div class="card-body">
+		                        <form id="registrationForm" action="VerifyCodeSender" method="POST" autocomplete="on">
+		                            <div class="form-group">
+		                                <label for="name">Full Name</label>
+		                                <input type="text" id="name" class="form-control" name="name" placeholder="Enter your full name">
+		                            </div>
+		
+		                            <!--Splitting-->
+		                            <div class="row">
+		                                <div class="col-sm-6">
+		                                    <!--Phone-->
+		                                    <div class="form-group">
+		                                        <label for="phone">Mobile Number</label>
+		                                        <input type="text" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp">
+		                                        <small id="phoneHelp" class="form-text text-muted">We dont Share your number</small>
+		                                    </div>
+		                                </div>
+		
+		                                <div class="col-sm-6">
+		                                    <!--Email-->
+		                                    <div class="form-group">
+		                                        <label for="email">Email</label>
+		                                        <input type="email" id="email" class="form-control" name="email" placeholder="you@awesome.com" aria-describedby="emailHelp">
+		                                        <small id="emailHelp" class="form-text text-muted">We dont Share your email</small>
+		                                    </div>
+		                                </div>
+		                            </div>
+		
+		                            <div class="row">
+		                                <div class="col-sm-6">
+		                                    <!--Password-->
+		                                    <div class="form-group">
+		                                        <label for="--Password--">password</label>
+		                                        <input type="password" class="form-control" id="Password" name="password" placeholder="---password---">
+		                                    </div>
+		                                </div>
+		
+		                                <div class="col-sm-6">
+		                                    <!--Email-->
+		                                    <div class="form-group">
+		                                        <label for="confirmpassword">Confirm Password</label>
+		                                        <input type="password" id="confirmpassword" class="form-control" name="confirmpassword" placeholder="---Confirm Password---">
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            
+		                            <div class="form-group text-center">
+		                                <div class="form-check">
+		
+		                                    <!--class="form-check-input"-->
+		                                    <input type="checkbox" name="terms" id="terms" class="form-check-input" required>  
+		                                    <label for="terms">I agree to Terms & Condition</label>
+		                                </div>
+		                            </div>
+		
+		                            <div class="form-group text-center">
+		                                <button class="btn btn-primary" type="submit">SignUp</button>
+		                            </div>
+		                           
+		                        </form>
+		                        
+		                       <div class="pt-3 text-center">
+			                    <small class="">
+			                      Already have an account?
+			                      <a href="login.jsp">LOGIN</a>
+			                    </small><br>
+			                    <small class="">
+			                      Are you a Teacher?
+			                      <a href="Tregistration.html">Sign up</a>
+			                    </small>
+		                		</div>
+		                    </div>
+		                </div>
+		            </div>
+	        	</div>
+    		</div>
+		</div>
+	</section>
 
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Registration Form
-                    </div>
-                    <div class="card-body">
-                        <form id="registrationForm" action="VerifyCodeSender" method="POST" autocomplete="on">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Enter your full name">
-                            </div>
-
-                            <!--Splitting-->
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!--Phone-->
-                                    <div class="form-group">
-                                        <label for="phone">Mobile Number</label>
-                                        <input type="number" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp">
-                                        <small id="phoneHelp" class="form-text text-muted">We dont Share your number</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <!--Email-->
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" class="form-control" name="email" placeholder="you@awesome.com" aria-describedby="emailHelp">
-                                        <small id="emailHelp" class="form-text text-muted">We dont Share your email</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!--Password-->
-                                    <div class="form-group">
-                                        <label for="--Password--">password</label>
-                                        <input type="password" class="form-control" id="Password" name="password" placeholder="---password---">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <!--Email-->
-                                    <div class="form-group">
-                                        <label for="confirmpassword">Confirm Password</label>
-                                        <input type="password" id="confirmpassword" class="form-control" name="confirmpassword" placeholder="---Confirm Password---">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group text-center">
-                                <div class="form-check">
-
-                                    <!--class="form-check-input"-->
-                                    <input type="checkbox" name="terms" id="terms" class="form-check-input" required>  
-                                    <label for="terms">I agree to Terms & Condition</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group text-center">
-                                <button class="btn btn-success" type="submit">SignUp</button>
-                            </div>
-                           
-                        </form>
-                        
-                       <div class="pt-3 text-center">
-	                    <small class="">
-	                      Already have an account?
-	                      <a href="login.jsp">LOGIN</a>
-	                    </small>
-                		</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 
 
