@@ -67,6 +67,9 @@
 		                        </form>
 		                    </div>
 		                </div>
+		               <div class="mt-2">
+		                	<a href="PasswordHELP.html" class="btn btn-outline-primary">Forget Password</a>
+		                </div>
 		                <div class="pt-3 text-center">
 		                    <small class="">
 		                      Don't have an account?
