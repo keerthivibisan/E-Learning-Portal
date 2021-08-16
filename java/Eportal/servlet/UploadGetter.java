@@ -39,6 +39,7 @@ public class UploadGetter extends HttpServlet {
 			
 			for(FileItem file: files)
 			{
+				//Default storage location must be given here
 				file.write(new File("D:\\JAVA-EE-workspace\\E-Portal\\src\\main\\webapp\\Courses\\"+Cname+"("+UID+")"+"//"+file.getName()));
 			}
 			

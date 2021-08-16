@@ -47,17 +47,22 @@ public class StudentCourseRegister {
 	{
 		boolean flag = false;
 		
+		DATEGENERATOR date = new DATEGENERATOR();
+		
+		String Rdate = date.getDate();
+		
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbname,dbpass);
 			
-			String query = "insert into sturegistercourse values(?,?,?)";
+			String query = "insert into sturegistercourse values(?,?,?,?)";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, Cid);
 			st.setString(2, Cname);
 			st.setInt(3, Sid);
+			st.setString(4, Rdate);
 			
 			count = st.executeUpdate();
 			count++;

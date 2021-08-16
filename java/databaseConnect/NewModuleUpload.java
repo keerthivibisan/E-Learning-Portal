@@ -14,6 +14,11 @@ public class NewModuleUpload {
 	{
 		boolean flag = false;
 		
+		//Default
+		String status = "In-Active";
+		
+		DATEGENERATOR date = new DATEGENERATOR();
+		String Udate = date.getDate();
 		try
 		{
 			String Cname = obj.getCname();
@@ -22,12 +27,14 @@ public class NewModuleUpload {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
-			String query = "insert into courses values(null,?,?,?)";
+			String query = "insert into courses values(null,?,?,?,?,?)";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, Cname);
 			st.setString(2, Fpath);
 			st.setInt(3, UID);
+			st.setString(4, status);
+			st.setString(5, Udate);
 			
 			int c = st.executeUpdate();
 			

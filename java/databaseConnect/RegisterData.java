@@ -17,11 +17,13 @@ public class RegisterData {
 	String url = "jdbc:mysql://localhost:3306/ePortal";
 	String dbname = "root";
 	String dbpass = "vibi123";
-	String query = "insert into studentdetails values(?,?,?,?,?)";
+	String query = "insert into studentdetails values(?,?,?,?,null,?)";
 	
 	public boolean RegisterUserData(String UserName,String phone,String Email,String Finalpassword)
 	{
 		try {
+			DATEGENERATOR get = new DATEGENERATOR();
+			String date = get.getDate();
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbname,dbpass);
@@ -30,7 +32,7 @@ public class RegisterData {
 			st.setString(2, Finalpassword);
 			st.setString(3, phone);
 			st.setString(4,Email);
-			st.setInt(5, Sno);
+			st.setString(5, date);
 			int c = st.executeUpdate();
 			System.out.println(c+"/rows affected");
 			

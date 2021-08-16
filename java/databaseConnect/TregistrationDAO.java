@@ -13,6 +13,10 @@ public class TregistrationDAO {
 	public boolean RegisterTeacher(TregistrationInfoCarrier obj)
 	{
 		boolean flag = false;
+		
+		DATEGENERATOR date = new DATEGENERATOR();
+		String Tdate = date.getDate();
+		
 		try
 		{
 			String Tname = obj.getTname();
@@ -23,14 +27,15 @@ public class TregistrationDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbname,dbpass);
-			String query="insert into teacher values(null,?,?,?,?)";
+			String query="insert into teacher values(null,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(query);
 			
 			st.setString(1, Tname);
 			st.setString(2, Tcontact);
 			st.setString(3, Temail);
 			st.setString(4, Tpass);
-			System.out.println(Tname);
+			st.setString(5, Tdate);
+			//System.out.println(Tname);
 			
 			int c = st.executeUpdate();
 			flag = true;
