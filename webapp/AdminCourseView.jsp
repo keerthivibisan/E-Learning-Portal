@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@ page import = "com.admin.*, com.AdminDAO.*, java.util.LinkedList" %>
+<%@ page import = "com.admin.*, com.AdminDAO.*, java.util.LinkedList, java.io.File" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +23,8 @@
     </style>
   </head>
   <body>
-    
-    <%
+  
+  	<%
   	//Preventing back button after logout
   	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
   	response.setHeader("Pragma", "no-cache");
@@ -55,7 +55,7 @@
       
       <div class="container-fluid">
         <div class="row">
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse bg-dark" style="height: 95vh;">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse bg-dark" style="position: fixed; height: 95vh">
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item nav-ele-hover">
@@ -83,21 +83,23 @@
 
                 <li class="nav-item nav-ele-hover">
                   <a class="text-white nav-link" href="AdminStuCourseRegister.jsp">
+                    
                     Course Register
                   </a>
                 </li>
                 
-                <li class="nav-item nav-ele-hover">
+                <li class="nav-item nav-ele-hover activate">
                   <a class="text-white nav-link" href="AdminCourseView.jsp">
                     Course Store
                   </a>
                 </li>
                 
-                <li class="nav-item nav-ele-hover activate">
+                <li class="nav-item nav-ele-hover">
                   <a class="text-white nav-link" href="AdminStudentCourseVideoSee.jsp">
                     Student's Vseen
                   </a>
                 </li>
+                
                 
               </ul>
             </div>
@@ -105,7 +107,7 @@
       
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Student's Completely Seen Video's Dump</h1>
+              <h1 class="h2">Available Courses</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                   <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
@@ -116,97 +118,140 @@
                 </button>
               </div>
             </div>
-      
-            
-            <div class="table-responsive card">
-              <table class="table table-striped table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">V-Id</th>
-                    <th scope="col">C-Id</th>
-                    <th scope="col">C-Name</th>
-                    <th scope="col">S-Id</th>
-                    <th scope="col">S-Email</th>
-                    <th scope="col">Watch Date</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
                 <%!
                 LinkedList <String> name = new LinkedList <String> ();
-        		LinkedList <Integer> Sno = new LinkedList <Integer> ();
-        		LinkedList <String> Email = new LinkedList <String> ();
-        		LinkedList <String> date = new LinkedList <String> ();
-        		LinkedList <Integer> CourseId = new LinkedList <Integer> ();
-        		LinkedList <String> CourseName = new LinkedList <String> (); 
+            	LinkedList <Integer> Sno = new LinkedList <Integer> ();
+            	LinkedList <String> Contact = new LinkedList <String> ();
+            	LinkedList <String> Email = new LinkedList <String> ();
+            	LinkedList <String> date = new LinkedList <String> ();
+            	
+            	LinkedList <String> filepath = new LinkedList <String> ();
+            	LinkedList <String> status = new LinkedList <String> ();
+            	LinkedList <Integer> CourseId = new LinkedList <Integer> ();
             	
             	Integer Sid [] = null;
-            	Integer Cid [] = null;
-            	String  Cname [] = null;
-            	String  VId [] = null;
+            	String  Sname [] = null;
             	String SEmail [] = null;
+            	String Scontact [] = null;
             	String JDate[] = null;
+            	String FilePath[] = null;
+            	String Status[] = null;
+            	Integer CourseID [] = null;
             	
             	int i = 0;
                 %>
                 
                 <%
-                AllStudentInfoCarrier Vfetch = new AllStudentInfoCarrier();
+                AllStudentInfoCarrier Cfetch = new AllStudentInfoCarrier();
                 
                 AllUserDAOFetch get = new AllUserDAOFetch();
-                boolean flag = get.GetStuSeenVideos(Vfetch);
+                boolean flag = get.getAllCourseDetails(Cfetch);
                 
                 if(flag)
                 {
-                	Sno = Vfetch.getSno();
-                	name = Vfetch.getName();
-                	Email = Vfetch.getEmail();
-                	CourseName = Vfetch.getExtraStr();
-                	date = Vfetch.getDate();
-                	CourseId = Vfetch.getCourseId();
+                	Sno = Cfetch.getSno();
+                	name = Cfetch.getName();
+                	Email = Cfetch.getEmail();
+    				filepath = Cfetch.getFilepath();
+    				status = Cfetch.getStatus();
+    				CourseId = Cfetch.getCourseId();
+                	date = Cfetch.getDate();
                 	
                 	//Converting all LinkedList into Array
                 	Sid = Sno.toArray(new Integer[0]);
-                	Cname = CourseName.toArray(new String[0]);
-                	SEmail = Email.toArray(new String[0]);
-                	Cid = CourseId.toArray(new Integer[0]);
-                	VId = name.toArray(new String[0]);
-                	JDate = date.toArray(new String[0]);
                 	
+                	//Sname
+                	Sname = name.toArray(new String[0]);
+                	SEmail = Email.toArray(new String[0]);
+                	
+                	//Fp
+					FilePath = filepath.toArray(new String[0]);
+                	JDate = date.toArray(new String[0]);
+                	CourseID = CourseId.toArray(new Integer[0]);
+                	Status = status.toArray(new String[0]);
                 	//Length of Array
                 	int p = Sid.length;
                 	
                 	for(i = 0; i<p; i++)
                 	{
-                
+                	System.out.println(CourseID[i]);
                 %>
-                
-                
-                  <tr>
-                    <td><%= VId[i]%></td>
-                    <td><%= Cid[i]%></td>
-                    <td><%= Cname[i]%></td>
-                    <td><%= Sid[i]%></td>
-                    <td><%= SEmail[i]%></td>
-                    <td><%= JDate[i]%></td>
-                    <td>
-                    	<form action = "StuVideoDumbDelete" method = "post" id="delete-user" onSubmit="return confirm('Are you sure you wish to delete User');">
-                    		<input type="text" name="VideoId" value=<%= VId[i]%> hidden>
-                    		<input type="text" name="CourseId" value=<%= Cid[i]%> hidden>
-                    		<input type="text" name="UserID" value=<%= Sid[i]%> hidden>
-                    		<button type="submit" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="DELETE User"><i class="fas fa-trash-alt fa-1x text-danger"></i></button>
-                    	</form>
-                    </td>
-                  </tr>
+                <div class="card mb-3" style="">
+				  <div class="row g-0">
+				    <div class="col-md-4">
+				      <img src="ePortal.png" class="card-img-top" alt="logo">
+				    </div>
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <p class="card-text h5">Course ID: <%= CourseID[i]%></p>
+				    	<p class="card-text h5">Course Name: <%= Sname[i]%></p>
+				    	<p class="card-text">Uploader ID: <%= Sid[i]%></p>
+				    	<p class="card-text">Uploader Email: <%= SEmail[i]%></p>
+				    	<p class="card-text">Upload Date: <%= JDate[i]%></p>
+				    	<p class="card-text h5">Status: <%= Status[i]%></p>
+				    
+				    	<button class="btn btn-primary float-left" type="button" data-bs-toggle="offcanvas" data-bs-target= <%= "#offcanvasRight"+CourseID[i]%> aria-controls="offcanvasRight">View File's</button>
+						<div class="offcanvas offcanvas-end" tabindex="-1" id= <%= "offcanvasRight"+CourseID[i]%> aria-labelledby="offcanvasRightLabel">
+						<div class="offcanvas-header">
+					  		<h5 id="offcanvasRightLabel">File's: </h5>
+					  		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+					  	<div class="offcanvas-body">
+				<%
+					String Fpath = FilePath[i];
+					
+					File fobj = new File(Fpath);
+					
+					if(fobj.exists())
+					{
+					File fileItems [] = fobj.listFiles();
+					
+					for(File item : fileItems)
+					{
+						String Fname = item.getName();
+						System.out.println(Fname);
+						int dot = Fname.lastIndexOf(".");
+						String ext = Fname.substring(dot+1);
+						System.out.println(ext);
+						
+						if(ext.equals("mp4"))
+						{
+							String AbsolutePath = item.getAbsolutePath();
+			
+							int z = AbsolutePath.indexOf("Courses");
+							String relativePath = AbsolutePath.substring(z);
+							System.out.println(relativePath);
+				%>
+							<video src=<%= relativePath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
+				<%
+						}
+						
+						else if(ext.equals("jpg") || ext.equals("jpeg") || ext.equals("png"))
+						{
+							String AbsolutePath = item.getAbsolutePath();
+							int z = AbsolutePath.indexOf("Courses");
+							String relativePath = AbsolutePath.substring(z);
+							System.out.println(relativePath);
+				%>    
+					  		<img src= <%= relativePath%> class="img-fluid" alt="Your Upload" width="300">
                   
                <%
-                	}
+						}
+					}
+				%>
+						<!-- OFFCanvas & Card Close Inside Number of Courses For Loop-->
+						</div>
+					</div> 
+					</div>
+                </div>
+                </div>
+                </div>
+				<%
+					}
+                  }
                 }
-               %>
-                  
-                </tbody>
-              </table>
-            </div>
+               %>  
+                     				 
           </main>
         </div>
       </div>

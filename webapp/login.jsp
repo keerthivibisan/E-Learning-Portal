@@ -106,17 +106,39 @@
    	
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
+        let profile = googleUser.getBasicProfile(); 
+        let FullName = profile.getName();
+        let Img_Url = profile.getImageUrl();
+        let Email = profile.getEmail();
+        
+        console.log(FullName);
+        console.log(Img_Url);
+		console.log(Email);
+		
+		let params = "Name="+FullName+ "&Email="+Email;
+		
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST","GoogleLogin",true);
+		
+		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		
+		xhr.onload = function()
+		{
+			if(this.status == 200)
+			{
+				let response = this.responseText;
+				//console.log(response);
+				
+				if(response == "true")
+				{
+					window.location.href = "home.jsp";
+				}
+				
+			}
+		}
+		
+		xhr.send(params);
+      
       }
       
     </script>

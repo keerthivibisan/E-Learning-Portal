@@ -87,6 +87,12 @@
                   </a>
                 </li>
                 
+                 <li class="nav-item nav-ele-hover">
+                  <a class="text-white nav-link" href="AdminCourseView.jsp">
+                    Course Store
+                  </a>
+                </li>
+                
                 <li class="nav-item nav-ele-hover">
                   <a class="text-white nav-link" href="AdminStudentCourseVideoSee.jsp">
                     Student's Vseen
