@@ -14,7 +14,7 @@ public class LoginVerification {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbname,dbpass);
 			//As it is dynamic
-			String query = "select email,password from studentdetails where email=? and password=?";
+			String query = "select * from studentdetails where email=? and password=?";
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, email);
 			st.setString(2, pass);
@@ -22,7 +22,13 @@ public class LoginVerification {
 			ResultSet rd = st.executeQuery();
 			
 			if(rd.next()) {
-				return(true);
+				
+				String blocked = rd.getString(7);
+				System.out.println(blocked);
+				if(blocked == null)
+				{
+					return(true);
+				}
 			}
 			
 			st.close();
@@ -35,6 +41,7 @@ public class LoginVerification {
 		return(false);
 	}
 	
+	//Teachers----------------------------------------
 	public boolean TLoginVerify(String Temail,String Tpass)
 	{
 		boolean flag = false;
@@ -55,7 +62,13 @@ public class LoginVerification {
 			
 			if(rd.next())
 			{
-				flag = true;
+				String action = rd.getString(7);
+				
+				if(action == null)
+				{
+					flag = true;
+				}
+				
 			}
 			
 			st.close();

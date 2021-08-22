@@ -189,9 +189,33 @@
                     		<input type="text" name="UEmail" value=<%= SEmail[i]%> hidden>
                     		<button type="submit" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="DELETE User"><i class="fas fa-trash-alt fa-1x text-danger"></i></button>
                     	</form>
-                    	<form action = "" method = "post" onSubmit="return confirm('Are you sure, want to Block User');">
+                    	<%
+                    	UserBlockCheck check = new UserBlockCheck();
+                    	
+                    	boolean status = check.TBlockCheck(Sid[i]);
+                    	
+                    	if(status)
+                    	{
+                    		//Un-BlockUSER
+                    	%>
+                    	<form action = "UnBlocker" method = "post" onSubmit="return confirm('Are you sure, want to Un-Block User');">
+                    		<input type="text" name="UType" value= "teacher" hidden>
+                    		<input type="text" name="UserID" value=<%= Sid[i]%> hidden>
+                    		<button type="submit" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Un-Block User"><i class="fas fa-ban fa-1x text-success"></i></button>
+                    	</form>
+                    	<%
+                    	}
+                    	
+                    	else
+                    	{
+                    		
+                    	%>
+                    	<form action = "BlockUser" method = "post" onSubmit="return confirm('Are you sure, want to Block User');">
+                    		<input type="text" name="UType" value= "teacher" hidden>
+                    		<input type="text" name="UserID" value=<%= Sid[i]%> hidden>
                     		<button type="submit" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Block User"><i class="fas fa-exclamation-circle fa-1x"></i></button>
                     	</form>
+                    	<%} %>
                     </td>
                   </tr>
                   

@@ -17,7 +17,7 @@ public class RegisterData {
 	String url = "jdbc:mysql://localhost:3306/ePortal";
 	String dbname = "root";
 	String dbpass = "vibi123";
-	String query = "insert into studentdetails values(?,?,?,?,null,?)";
+	String query = "insert into studentdetails values(?,?,?,?,null,?,null)";
 	
 	public boolean RegisterUserData(String UserName,String phone,String Email,String Finalpassword)
 	{

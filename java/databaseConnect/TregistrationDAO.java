@@ -27,7 +27,7 @@ public class TregistrationDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbname,dbpass);
-			String query="insert into teacher values(null,?,?,?,?,?)";
+			String query="insert into teacher values(null,?,?,?,?,?,null)";
 			PreparedStatement st = con.prepareStatement(query);
 			
 			st.setString(1, Tname);

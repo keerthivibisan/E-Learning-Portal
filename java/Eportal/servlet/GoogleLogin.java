@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.admin.GoogleSignINBlock;
+
+import databaseConnect.GoogleUserChecker;
 import databaseConnect.RegisterData;
 import databaseConnect.UserChecker;
 
@@ -24,21 +27,25 @@ public class GoogleLogin extends HttpServlet {
 		String name = req.getParameter("Name");
 		String phone = null;
 		String pass = "Google-User";
-		//System.out.println(email);
-		//System.out.println(name);
+
+		//User-Block Carrier
+		GoogleSignINBlock action = new GoogleSignINBlock();
 		
 		//Checking Already USER Registered in our database
-		UserChecker check = new UserChecker();
-		boolean flag = check.ExistingUserCheck(email);
+		GoogleUserChecker check = new GoogleUserChecker();
+		boolean flag = check.ExistingUserCheck(email, action);
 		
 		if(flag)
 		{
-			HttpSession session = req.getSession();
-			session.setAttribute("useremail",email);
-			//res.sendRedirect("home.jsp");
-			//System.out.println("Existing user, Session set");
-			res.setContentType("text/html");
-			out.print("true");
+			if(action.getBlock() == null)
+			{
+				HttpSession session = req.getSession();
+				session.setAttribute("useremail",email);
+				//res.sendRedirect("home.jsp");
+				//System.out.println("Existing user, Session set");
+				res.setContentType("text/html");
+				out.print("true");
+			}
 		}
 		
 		else
