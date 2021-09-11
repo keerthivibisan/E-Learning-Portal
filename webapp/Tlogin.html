@@ -14,6 +14,10 @@
 
 
     <link rel="stylesheet" href="Teachers.css">
+    
+    <!-- Google signin authentication -->
+    <meta name="google-signin-client_id" content="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 
@@ -57,8 +61,9 @@
                 </div>
                 
             </div>
-			<div class="mt-2">
+			<div class="mt-2 d-flex justify-content-between">
 		       <a href="TPasswordHelper.html" class="btn btn-outline-dark">Forget Password</a>
+		       <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 		    </div>
             <div class="pt-3 text-center">
                 <small class="">
@@ -80,6 +85,50 @@
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+	<script>
+	
+		//Preventing Automatic Sign-in
+	   	window.onbeforeunload = function(e){
+	   	  gapi.auth2.getAuthInstance().signOut();
+	   	};
+		
+		
+	  function onSignIn(googleUser) {
+	    // Useful data for your client-side scripts:
+	    let profile = googleUser.getBasicProfile(); 
+	    let FullName = profile.getName();
+	    let Img_Url = profile.getImageUrl();
+	    let Email = profile.getEmail();
+	    
+	    console.log(FullName);
+	    console.log(Img_Url);
+		console.log(Email);
+		
+		//Ajax Request
+		let xhr = new XMLHttpRequest();
+		
+		let params = "Name="+FullName+ "&Email="+Email;
+		
+		xhr.open('POST', "TGoogleLogin", true);
+		
+		//--- Encoding as it is a POST Request ---
+		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		
+		xhr.onload = function()
+		{
+			if(this.status == 200)
+			{
+				let res = this.responseText;
+				
+				if(res === "Y")
+				{
+					window.location.href = "Thome.jsp";
+				}
+			}
+		}
+		
+		xhr.send(params);
+  }
+	</script>
 </body>
-</html>/html>
+</html>

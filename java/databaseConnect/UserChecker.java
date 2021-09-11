@@ -32,5 +32,39 @@ public class UserChecker {
 		return(false);
 		
 	}
+	
+	//Teachers Google Login User Checker
+	public boolean TExistingCheck(String Email)
+	{
+		boolean flag = false;
+		
+		try 
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url, dbname, dbpass);
+			
+			String query = "select * from teacher where Temail = ?";
+			
+			PreparedStatement st = con.prepareStatement(query);
+			
+			st.setString(1, Email);
+			
+			ResultSet rd = st.executeQuery();
+			
+			if(rd.next())
+			{
+				
+				flag = true;
+			}
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return(flag);
+	}
 
 }
