@@ -1,6 +1,8 @@
 package databaseConnect;
 
 import java.sql.*;//1.
+
+import com.admin.GoogleSignINBlock;
 public class UserChecker {
 	
 	String url = "jdbc:mysql://localhost:3306/ePortal";
@@ -34,7 +36,7 @@ public class UserChecker {
 	}
 	
 	//Teachers Google Login User Checker
-	public boolean TExistingCheck(String Email)
+	public boolean TExistingCheck(String Email, GoogleSignINBlock block)
 	{
 		boolean flag = false;
 		
@@ -54,7 +56,8 @@ public class UserChecker {
 			
 			if(rd.next())
 			{
-				
+				String BLK = rd.getString(7);
+				block.setBlock(BLK);
 				flag = true;
 			}
 		}
