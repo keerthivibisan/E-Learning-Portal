@@ -24,6 +24,12 @@
 	
 	<link rel="stylesheet" href="videoLessonPage.css">
 	
+	<style>
+		 .hide{
+        	display: none;
+        }
+	</style>
+	
 </head>
 <body>
 
@@ -124,7 +130,12 @@
                                     <p>Name: <%= Name%></p>
                                     <p>RollNo: <%= RollNo%></p>
                                     <p>Email: <%= Email%></p>
-                                    <p>Contact: <%= PNumber%></p>
+                                    <p>Contact: <%= PNumber%> <i class="fas fa-edit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" onclick="UpdateContact()"></i></p>
+                                	<form id="updateForm" action = "UpdateContact" method="post" class="hide">
+                                		<input type="text" name="Contact" placeholder="10 - Digit Contact Number" pattern="[0-9]{10}" required>
+                                		<input type ="text" name="Uemail" value = <%= Email%> hidden>
+                                		<button type = "submit" class="btn btn-primary btn-sm">Update</button>
+                                	</form>
                                 </div>
                                
                             </div>
@@ -238,6 +249,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="VideoPlayer.js"></script>
+    <script src = "ContactUpdate.js"></script>
     <script>
 
         let loader = document.querySelector(".loader");

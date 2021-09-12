@@ -110,9 +110,13 @@
                           <div>
                             <i class="fas fa-user-circle fa-5x"></i>
                             <p class="mt-2">User name: <%= Tname%></p>
-                            <p>Unique ID: <%= TuID%></p>
+                            <p>Unique ID: <p id = "TUID"><%= TuID%></p></p>
                             <p>Email: <%= Email%></p>
-                            <p>Contact: <%= Tcontact%></p>
+                            <p>Contact: <%= Tcontact%> <i onClick = "ShowUpdateBox()" class="fas fa-edit text-dark"></i></p>
+                            <div id = "UpdateBox" class = "hide">
+                            	<input type = "number" id = "contactChange" placeholder = "10 - Digit Number"/>
+                            	<button onClick = "TUpdateContact()" class = "btn btn-primary btn-sm"><i class="fas fa-check text-light"></i></button>
+                            	</div>
                           </div>
                         </div>
                       </div>
@@ -258,23 +262,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-   <script>
-
-       function ShowMenu()
-       {
-           document.getElementById("ShowMenuBtn").classList.toggle('hide');
-           document.getElementById("HideMenuBtn").classList.toggle('hide');
-           document.getElementById("Menu").classList.toggle('hide');
-       }
-
-       function HideMenu()
-       {
-           document.getElementById("ShowMenuBtn").classList.toggle('hide');
-           document.getElementById("HideMenuBtn").classList.toggle('hide');
-           document.getElementById("Menu").classList.toggle('hide');
-       }
-
-   </script>
+	<script src = "ContactUpdate.js"></script>
    
        <!--For UserType-->
     <script>
