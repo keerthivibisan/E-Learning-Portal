@@ -82,7 +82,7 @@
                 </div>
     
                 <div class="menu-logo">
-                    <p>SHARP</p>
+                    <p>BIT</p>
                 </div>
             </div>
 

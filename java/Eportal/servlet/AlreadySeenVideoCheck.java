@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import databaseConnect.StudentVideoRegister;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "CheckAlreadySeen", urlPatterns = "/CheckAlreadySeen")
 public class AlreadySeenVideoCheck extends HttpServlet {
 	

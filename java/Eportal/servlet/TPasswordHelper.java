@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import databaseConnect.PasswordFetcherHELPER;
 
+@SuppressWarnings("serial")
 @WebServlet("/TPasswordHelper")
 public class TPasswordHelper extends HttpServlet {
 	

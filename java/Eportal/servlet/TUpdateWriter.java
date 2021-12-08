@@ -1,5 +1,6 @@
 package Eportal.servlet;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -11,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+@SuppressWarnings("serial")
 @WebServlet("/UpdateWriter")
 public class TUpdateWriter extends HttpServlet {
 	
@@ -35,7 +36,7 @@ public class TUpdateWriter extends HttpServlet {
 			
 			for(FileItem f: files)
 			{
-				f.write(new File(path+"\\"+f.getName()));
+				f.write(new File(path+"/"+f.getName()));
 			}
 			
 			res.sendRedirect("UploadSuccess.jsp");

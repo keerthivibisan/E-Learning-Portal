@@ -4,14 +4,21 @@
     letter-spacing: 1.5px;
 }
 
+header
+{
+	position: fixed;
+	top:0;
+	width:100%;
+}
+
 img {
     max-width: 100%;
 }
 
 .top-box {
     margin-top: 5vmin;
-    background-color: #007bff;
-    color: white;
+    background-color: white;
+    color: black;
     font-family: helvetica;
     display: flex;
     justify-content: space-evenly;

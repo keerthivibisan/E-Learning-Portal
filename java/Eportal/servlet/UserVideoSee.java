@@ -1,5 +1,6 @@
 package Eportal.servlet;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -10,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import databaseConnect.CourseInfoFetch;
-import databaseConnect.NavbarProfileFetch;
 import databaseConnect.StudentVideoRegister;
 
+@SuppressWarnings("serial")
 @WebServlet(name="UserVideoRegister", urlPatterns="/UserVideoRegister")
 public class UserVideoSee extends HttpServlet {
 

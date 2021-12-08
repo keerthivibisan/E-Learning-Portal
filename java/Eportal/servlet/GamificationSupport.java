@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import databaseConnect.GamifyRegister;
 
+@SuppressWarnings("serial")
 @WebServlet(name="GamifySupport", urlPatterns="/GamifySupport")
 public class GamificationSupport extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException

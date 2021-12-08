@@ -36,13 +36,13 @@
     }
     %>
     
-    <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
+    <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-3 shadow">
 
         <button class="navbar-toggler  d-md-none me-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand px-3" href="#">SHARP</a>
+        <img src = "./clgLogo.jpg" alt = "clgLogo" width = "20%"/>
         
         <div class="navbar-nav">
           <div class="nav-item text-nowrap">

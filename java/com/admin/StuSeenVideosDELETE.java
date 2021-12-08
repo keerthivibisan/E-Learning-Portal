@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.AdminDAO.UserDelete;
 
+@SuppressWarnings("serial")
 @WebServlet("/StuVideoDumbDelete")
 public class StuSeenVideosDELETE extends HttpServlet {
 	
@@ -26,6 +27,7 @@ public class StuSeenVideosDELETE extends HttpServlet {
 		boolean flag = delete.StuVideoSeenDelete(VideoId, Cid, Sid);
 		
 		RequestDispatcher rd = null;
+		@SuppressWarnings("unused")
 		PrintWriter out = res.getWriter();
 		
 		if(flag)

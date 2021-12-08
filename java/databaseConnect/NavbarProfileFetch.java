@@ -7,12 +7,13 @@ import Eportal.servlet.NavbarProfileInfo;
 
 public class NavbarProfileFetch {
 	
-	String url = "jdbc:mysql://localhost:3306/ePortal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 
 	public boolean ProfileFetch(String email,NavbarProfileInfo obj)
 	{
+		@SuppressWarnings("unused")
 		boolean flag = false;
 		
 		try
@@ -53,6 +54,7 @@ public class NavbarProfileFetch {
 	
 	public boolean TprofileInfoFetch(String Temail,NavbarProfileInfo obj)
 	{
+		@SuppressWarnings("unused")
 		boolean flag = false;
 		try
 		{

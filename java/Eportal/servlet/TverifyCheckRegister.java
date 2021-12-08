@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import databaseConnect.TregistrationDAO;
 
 
+@SuppressWarnings("serial")
 @WebServlet("/TVerifyCheck")
 public class TverifyCheckRegister extends HttpServlet {
 	

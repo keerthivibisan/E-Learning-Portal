@@ -79,11 +79,9 @@
 	%>
 	
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
             <div class="container">
-            <a href="" class="navbar-brand logo">
-                
-                SHARP</a>
+            <img src = "./clgLogo.jpg" alt="image" width = "20%"/>
 
             <!--Toggle button class-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavBar" aria-controls="myNavBar"
@@ -107,7 +105,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header">
@@ -155,10 +153,10 @@
     <!--jumbotron BOOTSTRAP and font or text classes-->
     <div class="container">
         <div class="jumbotron text-center">
-            <P class="display-4">Welcome</P>
+            <!--  P class="display-4">Welcome</P -->
             <br classs="mt-5">
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quae odio consequuntur laudantium maiores. Deserunt in eligendi 
-                tempora itaque magni, voluptas explicabo consectetur at ea alias, iusto incidunt, dolorum eius.</p>
+            <p class="lead h4">BIT Learning Portal</p>
+            <P class="display-4">Happy Learning</P>
         </div>
     </div>
 

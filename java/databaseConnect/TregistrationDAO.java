@@ -6,9 +6,9 @@ import Eportal.servlet.TregistrationInfoCarrier;
 
 public class TregistrationDAO {
 
-	String url = "jdbc:mysql://localhost:3306/ePortal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	public boolean RegisterTeacher(TregistrationInfoCarrier obj)
 	{
@@ -35,8 +35,9 @@ public class TregistrationDAO {
 			st.setString(3, Temail);
 			st.setString(4, Tpass);
 			st.setString(5, Tdate);
-			//System.out.println(Tname);
 			
+			
+			@SuppressWarnings("unused")
 			int c = st.executeUpdate();
 			flag = true;
 			

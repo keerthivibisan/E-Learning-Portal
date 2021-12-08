@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.AdminDAO.UserDelete;
 
+@SuppressWarnings("serial")
 @WebServlet("/CourseDelete")
 public class CourseDelete extends HttpServlet {
 	
@@ -27,6 +28,7 @@ public class CourseDelete extends HttpServlet {
 		boolean flag = delete.CourseDelete(CourseId, UploaderId);
 		
 		RequestDispatcher rd = null;
+		@SuppressWarnings("unused")
 		PrintWriter out = res.getWriter();
 		
 		if(flag)

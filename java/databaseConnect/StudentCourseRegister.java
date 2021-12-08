@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class StudentCourseRegister {
 
-	String url = "jdbc:mysql://localhost:3306/ePortal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	int count = 0;
 	

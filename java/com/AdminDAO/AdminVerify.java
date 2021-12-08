@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class AdminVerify {
 
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	public boolean AdminLoginVerify(String Email, String Pass)
 	{
@@ -17,7 +17,7 @@ public class AdminVerify {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
 			
-			String query = "select * from AdminLogin where AEmail = ? and Apassword = ?";
+			String query = "select * from adminlogin where AEmail = ? and Apassword = ?";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, Email);

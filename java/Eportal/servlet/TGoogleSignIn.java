@@ -16,6 +16,7 @@ import com.admin.GoogleSignINBlock;
 import databaseConnect.TGoogleRegister;
 import databaseConnect.UserChecker;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "TGoogleLogin", urlPatterns = "/TGoogleLogin")
 public class TGoogleSignIn extends HttpServlet {
 	

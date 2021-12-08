@@ -78,11 +78,9 @@
 	%>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
             <div class="container">
-            <a href="" class="navbar-brand logo">
-                SHARP
-            </a>
+            <img src = "./clgLogo.jpg" alt="image" width = "20%"/>
 
             <!--Toggle button class-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavBar" aria-controls="myNavBar"
@@ -106,7 +104,7 @@
                     </li>
 
                      <li class="nav-item">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header">
@@ -127,7 +125,7 @@
                                     <p>Contact: <%= PNumber%> <i class="fas fa-edit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" onclick="UpdateContact()"></i></p>
                                 	<form id="updateForm" action = "UpdateContact" method="post" class="hide">
                                 		<input type="text" name="Contact" placeholder="10 - Digit Contact Number" pattern="[0-9]{10}" required>
-                                		<input type ="text" name="Uemail" value = <%= Email%> hidden>
+                                		<input type ="hidden" name="Uemail" value = <%= Email%>>
                                 		<button type = "submit" class="btn btn-primary btn-sm">Update</button>
                                 	</form>
                                 </div>
@@ -151,11 +149,11 @@
     <!--About Start-->
 
      <!--HEADER Navbar End-->
-     <section>
+     <section style="height: 80vh; display: flex; justify-content: center; align-items: center;">
         <!-----Flex Box Doings----->
-        <div class="top-box">
-            <div class="box-text">
-                <h2>SHARP</h2>
+        <div class="top-box bg-white shadow">
+            <div class="box-text text-dark">
+                <h2>BIT Learning Portal</h2>
                 <p>This is an Online E-Learning portal software created by (Cloud Computing Lab) Student's at Bannari Amman Institute of Technology, Erode, Tamilnadu.</p>
           
                	<ol>
@@ -165,23 +163,9 @@
                		<li>Kamaleswaran S</li>
                	</ol>
             </div>
-            <div class="box-image">
-                <img  src="ePortal.png" alt="">
+            <div class="box-image p-5">
+                <img  src="./bit.png" alt="">
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="main-box">
-           <div class="left-box">
-            <h2 style="color: #007bff;">About us</h2>
-
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam repudiandae veniam ex error fugit exercitationem earum eos quae! Deleniti rerum minus aspernatur illo, maiores delectus in cum provident vero. Dolorem?</p>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus molestiae ipsam repudiandae amet magni a delectus, ipsa nulla facilis! Quod animi nihil quos vero similique velit harum reiciendis perferendis atque.</p>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quis aliquam, minima necessitatibus numquam voluptatum autem quo deserunt obcaecati quae culpa provident tempore sit. Aut, tempora quod? Quae, nulla beatae!</p>
-            </div> 
         </div>
     </section>
     

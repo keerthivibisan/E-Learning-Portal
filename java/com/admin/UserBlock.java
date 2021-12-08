@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.AdminDAO.UserBlocker;
 
+@SuppressWarnings("serial")
 @WebServlet("/BlockUser")
 public class UserBlock extends HttpServlet {
 	

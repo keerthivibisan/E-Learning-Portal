@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.AdminDAO.UserDelete;
 
+@SuppressWarnings("serial")
 @WebServlet("/TUserDelete")
 public class TUserDelete extends HttpServlet {
 
@@ -25,6 +26,7 @@ public class TUserDelete extends HttpServlet {
 		boolean flag = delete.TUserDelete(Email, UID);
 		
 		RequestDispatcher rd = null;
+		@SuppressWarnings("unused")
 		PrintWriter out = res.getWriter();
 		
 		if(flag)

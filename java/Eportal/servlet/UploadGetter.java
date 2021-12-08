@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import databaseConnect.NewModuleUpload;
 
+@SuppressWarnings("serial")
 @WebServlet("/UploadGetter")
 public class UploadGetter extends HttpServlet {
 	
@@ -26,10 +27,12 @@ public class UploadGetter extends HttpServlet {
 		FileUploadInfoCarrier obj = (FileUploadInfoCarrier) uploadSes.getAttribute("UploaderObj");
 		
 		try {
+			@SuppressWarnings("unused")
 			PrintWriter out = res.getWriter();
 			
 			String Cname = obj.getCname();
 			int UID = obj.getUID();
+			String FPath = obj.getFpath();
 			
 			//Retriving uploaded Files
 			ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
@@ -40,7 +43,7 @@ public class UploadGetter extends HttpServlet {
 			for(FileItem file: files)
 			{
 				//Default storage location must be given here
-				file.write(new File("D:\\JAVA-EE-workspace\\E-Portal\\src\\main\\webapp\\Courses\\"+Cname+"("+UID+")"+"//"+file.getName()));
+				file.write(new File(FPath+"//"+file.getName()));
 			}
 			
 			NewModuleUpload dao = new NewModuleUpload();

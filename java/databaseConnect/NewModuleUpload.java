@@ -6,9 +6,9 @@ import Eportal.servlet.FileUploadInfoCarrier;
 
 public class NewModuleUpload {
 
-	String url = "jdbc:mysql://localhost:3306/ePortal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	public boolean CourseRegister(FileUploadInfoCarrier obj)
 	{
@@ -36,6 +36,7 @@ public class NewModuleUpload {
 			st.setString(4, status);
 			st.setString(5, Udate);
 			
+			@SuppressWarnings("unused")
 			int c = st.executeUpdate();
 			
 			flag = true;

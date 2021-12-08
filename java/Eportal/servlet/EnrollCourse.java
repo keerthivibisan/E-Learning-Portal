@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import databaseConnect.StudentCourseRegister;
 
+@SuppressWarnings("serial")
 @WebServlet("/EnrollCourse")
 public class EnrollCourse extends HttpServlet {
 	

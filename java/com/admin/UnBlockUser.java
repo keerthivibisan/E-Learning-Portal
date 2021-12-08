@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.AdminDAO.UserUNBlocker;
 
+@SuppressWarnings("serial")
 @WebServlet("/UnBlocker")
 public class UnBlockUser extends HttpServlet {
 	

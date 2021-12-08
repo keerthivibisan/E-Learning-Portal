@@ -1,9 +1,8 @@
 package Eportal.servlet;
 
+
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +15,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+@SuppressWarnings({ "serial", "unused" })
 @WebServlet("/TNewCourseUpload")
 public class TNewCourseUpload extends HttpServlet {
 	
@@ -30,11 +30,15 @@ public class TNewCourseUpload extends HttpServlet {
 			System.out.println("ABOVE INPUTS");
 			int UID = Integer.parseInt(req.getParameter("UID"));
 			String Cname = req.getParameter("Cname");
-//			System.out.println(UID);
-//			System.out.println(Cname);
-			String Fpath = "D:\\JAVA-EE-workspace\\E-Portal\\src\\main\\webapp\\Courses\\"+Cname+"("+UID+")";
 			
-			File fobj = new File("D:\\JAVA-EE-workspace\\E-Portal\\src\\main\\webapp\\Courses\\"+Cname+"("+UID+")");
+			//--------- Specify Fpath here for the First Time -------------
+			//Windows
+			//String Fpath = "D:/javaMainProject/E-Portal/src/main/webapp/Courses/"+Cname+"("+UID+")";
+			
+			//Linux 
+			String Fpath = "/usr/local/tomcat/webapps/E-Portal/Courses/"+Cname+"("+UID+")";
+			
+			File fobj = new File(Fpath);
 			
 			boolean isExist = fobj.exists();
 			

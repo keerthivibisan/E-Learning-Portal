@@ -6,9 +6,9 @@ import Eportal.servlet.PasswordHELPERCarrier;
 
 public class PasswordFetcherHELPER {
 	
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 
 	public boolean getPassword(PasswordHELPERCarrier fetch)
 	{

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import databaseConnect.StuProfileUpdate;
 
+@SuppressWarnings("serial")
 @WebServlet("/UpdateContact")
 public class STUUpdateUserContact extends HttpServlet {
 

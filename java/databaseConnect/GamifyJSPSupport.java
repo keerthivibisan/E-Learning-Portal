@@ -10,9 +10,9 @@ import Eportal.servlet.GamifyJSPScoreCarrier;
 public class GamifyJSPSupport {
 	
 	//Database Settings
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass= "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass= "test";
 		
 	public boolean AlreadyAttended(int Sid,GamifyJSPScoreCarrier obj)
 	{
@@ -23,7 +23,7 @@ public class GamifyJSPSupport {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
 				
-			String query = "select * from GamifyRegister where Sid = ?";
+			String query = "select * from gamifyregister where Sid = ?";
 				
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, Sid);

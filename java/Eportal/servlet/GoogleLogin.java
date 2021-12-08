@@ -13,8 +13,8 @@ import com.admin.GoogleSignINBlock;
 
 import databaseConnect.GoogleUserChecker;
 import databaseConnect.RegisterData;
-import databaseConnect.UserChecker;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "GoogleLogin", urlPatterns = "/GoogleLogin")
 public class GoogleLogin extends HttpServlet {
 	

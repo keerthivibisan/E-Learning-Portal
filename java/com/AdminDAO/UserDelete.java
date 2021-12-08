@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class UserDelete {
 
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	//Delete a student User
 	public boolean deleteStudent(String Email, int UID)

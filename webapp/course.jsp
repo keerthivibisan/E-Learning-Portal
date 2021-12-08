@@ -74,11 +74,9 @@
 	%>
 	
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
             <div class="container">
-            <a href="" class="navbar-brand logo">
-                SHARP
-            </a>
+            <img src = "./clgLogo.jpg" alt="image" width = "20%"/>
 
             <!--Toggle button class-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavBar" aria-controls="myNavBar"
@@ -102,7 +100,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user-circle fa-2x"></i></button>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header">
@@ -146,12 +144,9 @@
 
     <!--Course above-->
     <div class="container my-3">
-        <div class="float-left">
+        <div>
             <h5>Featured Courses:</h5>
-            <p>Now there is Free Trail for these Featured courses for 7-Days</p>
         </div>
-        <a href="#" type="button" class="btn btn-outline-danger float-right">Enroll Below</a> 
-        <div class="clearfix"></div>
     </div>
 
    <!--Course content-->

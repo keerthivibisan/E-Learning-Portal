@@ -3,9 +3,9 @@ package com.AdminDAO;
 import java.sql.*;
 public class UserBlockCheck {
 
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	//Student Block Check
 	public boolean StuBlockCheck(int Sid)

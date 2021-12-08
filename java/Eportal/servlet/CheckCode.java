@@ -15,6 +15,7 @@ import databaseConnect.RegisterData;
 import databaseConnect.UserChecker;
 
 
+@SuppressWarnings("serial")
 @WebServlet("/VerifyCode")
 public class CheckCode extends HttpServlet {
 	

@@ -36,13 +36,13 @@
     }
     %>
     
-    <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
+    <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-3 shadow">
 
         <button class="navbar-toggler  d-md-none me-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand px-3" href="#">SHARP</a>
+        <img src = "./clgLogo.jpg" alt = "clgLogo" width = "20%"/>
         
         <div class="navbar-nav">
           <div class="nav-item text-nowrap">
@@ -209,17 +209,18 @@
 					for(File item : fileItems)
 					{
 						String Fname = item.getName();
-						System.out.println(Fname);
+						System.out.println("This id Fname: "+Fname);
 						int dot = Fname.lastIndexOf(".");
 						String ext = Fname.substring(dot+1);
 						System.out.println(ext);
 						
 						if(ext.equals("mp4"))
 						{
-							String AbsolutePath = item.getAbsolutePath();
-			
+							String AbsolutePath = Fpath;
+							//String AbsolutePath = item.getAbsolutePath();
+							//System.out.print("This  PPPCCC : "+AbsolutePath);
 							int z = AbsolutePath.indexOf("Courses");
-							String relativePath = AbsolutePath.substring(z);
+							String relativePath = "./"+AbsolutePath.substring(z)+"/"+Fname;
 							System.out.println(relativePath);
 				%>
 							<video src=<%= relativePath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
@@ -228,9 +229,10 @@
 						
 						else if(ext.equals("jpg") || ext.equals("jpeg") || ext.equals("png"))
 						{
-							String AbsolutePath = item.getAbsolutePath();
+							String AbsolutePath = Fpath;
+							//String AbsolutePath = item.getAbsolutePath();
 							int z = AbsolutePath.indexOf("Courses");
-							String relativePath = AbsolutePath.substring(z);
+							String relativePath = AbsolutePath.substring(z)+"/"+Fname;
 							System.out.println(relativePath);
 				%>    
 					  		<img src= <%= relativePath%> class="img-fluid" alt="Your Upload" width="300">
@@ -241,18 +243,20 @@
 				%>
 						<!-- OFFCanvas & Card Close Inside Number of Courses For Loop-->
 						</div>
+				<%
+					}
+				%>
 					</div> 
 					</div>
                 </div>
                 </div>
                 </div>
 				<%
-					}
                   }
                 }
                %>  
                      				 
-          </main>
+          </main>>
         </div>
       </div>
 

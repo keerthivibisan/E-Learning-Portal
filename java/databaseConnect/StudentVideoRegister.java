@@ -6,9 +6,9 @@ import java.util.Date;
 public class StudentVideoRegister {
 	
 	//Database Settings
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 
 	public String getDate()
 	{
@@ -26,7 +26,7 @@ public class StudentVideoRegister {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
 			
-			String query = "select * from StuVideoRegister where Sid = ? and VideoId = ?";
+			String query = "select * from stuvideoregister where Sid = ? and VideoId = ?";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, Sid);
@@ -60,7 +60,7 @@ public class StudentVideoRegister {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
 			
-			String query = "insert into StuVideoRegister values(?,?,?,?)";
+			String query = "insert into stuvideoregister values(?,?,?,?)";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, VideoId);

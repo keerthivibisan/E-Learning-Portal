@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import databaseConnect.UserChecker;
 
+@SuppressWarnings("serial")
 @WebServlet("/VerifyCodeSender")
 public class VerifyCodeSender extends HttpServlet {
 	

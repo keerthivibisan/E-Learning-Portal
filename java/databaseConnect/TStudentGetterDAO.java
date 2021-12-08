@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import Eportal.servlet.TmyUploadsCarrier;
 public class TStudentGetterDAO {
 
-	String url = "jdbc:mysql://localhost:3306/ePortal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	LinkedList <Integer> SId = new LinkedList <Integer> ();
 	LinkedList <String> Sname = new LinkedList <String> ();

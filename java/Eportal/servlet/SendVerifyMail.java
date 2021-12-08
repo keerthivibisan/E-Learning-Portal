@@ -27,7 +27,7 @@ public class SendVerifyMail {
 		try
 		{
 			String fromMail = "skvtech2211@gmail.com";
-			String pass = "2211.vibisan";
+			String pass = "bzareuxawgxkounx";
 			String toMail = user.getEmail();
 			
 			//Setting up

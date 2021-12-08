@@ -7,9 +7,9 @@ import com.admin.AllStudentInfoCarrier;
 
 public class AllUserDAOFetch {
 
-	String url = "jdbc:mysql://localhost:3306/eportal";
-	String dbname = "root";
-	String dbpass = "vibi123";
+	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
+	String dbname = "test";
+	String dbpass = "test";
 	
 	//All Students Info Detail's Fetcher
 	public boolean GetAllStudents(AllStudentInfoCarrier obj)
@@ -129,6 +129,7 @@ public class AllUserDAOFetch {
 		boolean flag = false;
 		LinkedList <String> name = new LinkedList <String> ();
 		LinkedList <Integer> Sno = new LinkedList <Integer> ();
+		@SuppressWarnings("unused")
 		LinkedList <String> Contact = new LinkedList <String> ();
 		LinkedList <String> Email = new LinkedList <String> ();
 		LinkedList <String> date = new LinkedList <String> ();
