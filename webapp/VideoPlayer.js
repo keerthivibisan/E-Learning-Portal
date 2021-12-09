@@ -205,3 +205,4 @@ function SendRequest()
 	//This sends request to the Servlet
 	xhr.send();
 }
+

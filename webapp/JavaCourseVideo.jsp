@@ -228,13 +228,10 @@
                 <small class="text-muted">(Watch this lesson fully to Unlock next)</small>
             </div>
     
-            <!-- <div class="system-info">
-                <h5>Note: </h5>
-                <ul>
-                    <li>You can Forward or Skip the videos.</li>
-                    <li>you will be able to next video only after watching this Lesson fully.</li>
-                </ul>
-            </div> -->
+			<div class = "Question-section mt-5">
+				<p class="h3">ASSESSMENT</p>
+				
+			</div>
         </div>
 
     </div>

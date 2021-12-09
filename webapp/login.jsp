@@ -30,17 +30,17 @@
 <body>
 	
 	
-    <section class="row">
+    <section class="row" style="width: 100%;">
     	<div class="col-sm-1 no-mobile"></div>
     	<div class="col-sm-4 no-mobile" style = "height: 100vh; display: flex; justify-content: center; align-items: center;"><img src="./bit.png" alt="bit" class="img-fluid"></div>
     	<!--vertical forms-->
     	<div class="col-sm-7" style = "height: 100vh; display: flex; justify-content: center; align-items: center;">
-	    	<div class="mt-5">
+	    	<div class="">
 		        <div class="row">
 		            <!--Mx-auto to align form in the center-->
 		            <div class="col-sm-8 mx-auto">
 		                <div class="card">
-		                    <div class="card-header bg-white text-center h4 text-white"><img src = "./clgLogo.jpg" alt="image" width = "80%"/></div>
+		                    <div class="card-header bg-white text-center h4 text-white"><img src = "./clgLogo.jpg" alt="image" width = "60%"/></div>
 		                    <div class="card-body">
 		                        <form action="verify" method="post" autocomplete="on">
 		                            <div class="form-group">

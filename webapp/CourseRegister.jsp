@@ -35,7 +35,7 @@
 	String PNumber;
 	
 	//COURSE Details
-	String CourseName = "JAVA";
+	String CourseName;
 	int CourseUID;
 	String teacherName;
 	String Temail;
@@ -59,13 +59,16 @@
 	//Fetching UserEmail from verify Servlet to take User info from Database and Display in Profile
 	HttpSession ses = request.getSession(false);
 	String UEmail = ses.getAttribute("useremail").toString();
-
+	
 	NavbarProfileInfo fetch = new NavbarProfileInfo();
 	
+	HttpSession st = request.getSession();
+	CourseName = st.getAttribute("Cname").toString();
+	System.out.println("Session Recieved= "+CourseName);
 	//Setting Course name
 	fetch.setCourseName(CourseName);
 	
-	//Profile
+	//Profile (--Dont Disturb--)
 	NavbarProfileFetch obj = new NavbarProfileFetch();
 	obj.ProfileFetch(UEmail, fetch);
 	
@@ -167,8 +170,8 @@
 
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
-              <h1 class="display-5 fw-bold">Java Programming Course</h1>
-              <p class="col-md-8 fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eligendi odio rem alias officia quisquam ut in quas dignissimos obcaecati magni eum quo architecto, vero voluptas corporis praesentium! Quia, ipsam?</p>
+              <h1 class="display-5 fw-bold"><%= CourseName%> Course</h1>
+              <p class="col-md-8 fs-4"></p>
             </div>
           </div>
       

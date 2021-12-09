@@ -6,7 +6,34 @@ public class FileUploadInfoCarrier {
 	String Cname;
 	String Fpath;
 	int Cid;
-	
+	String desc;
+	String imgurl;
+	String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getImgurl() {
+		return imgurl;
+	}
+
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
+
 	public int getCid() {
 		return Cid;
 	}
@@ -23,7 +50,7 @@ public class FileUploadInfoCarrier {
 		Fpath = fpath;
 	}
 
-	FileUploadInfoCarrier()
+	public FileUploadInfoCarrier()
 	{
 		
 	}

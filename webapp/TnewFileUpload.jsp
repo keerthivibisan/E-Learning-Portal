@@ -153,13 +153,23 @@
                         <form action="TNewCourseUpload" method="post">
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="tUID" placeholder="name@example.com" value= <%= TuID%> name="UID" required>
+                                <input type="text" class="form-control" id="tUID" placeholder="name@example.com" value= <%= TuID%> name="UID" readonly>
                                 <label for="tUID">Your UID</label>
                               </div>
 
                               <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="Cname" placeholder="Password" name="Cname" required>
                                 <label for="Cname">Module Name</label>
+                              </div>
+                                                      
+                               <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="desc" placeholder="Password" name="desc" required>
+                                <label for="desc">Description</label>
+                              </div>
+                              
+                              <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="img" placeholder="Password" name="img" required>
+                                <label for="img">Cover Image URL</label>
                               </div>
 
                               <div class="">

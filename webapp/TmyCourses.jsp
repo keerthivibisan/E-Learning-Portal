@@ -177,14 +177,20 @@
     LinkedList <Integer> CID = new LinkedList <Integer> ();
 	LinkedList <String> Cname = new LinkedList <String> ();
 	LinkedList <String> Cpath = new LinkedList <String> ();
+	LinkedList <String> img = new LinkedList <String> ();
+	LinkedList <String> desc = new LinkedList <String> ();
+	
 	Integer Cid[] = null;
 	String Cnm [] = null;
 	String Fpath [] = null;
+	String imgurl [] = null;
+	String dsc[] = null;
+	
 	int i;
 	String Filepath;
     %>
     
-    <div class="container">
+    <div class="container mb-3">
     	<div class="d-flex align-items-center justify-content-center flex-column">
         	<img src="MyUploads.png" alt="" class="img-fluid" style="width: 450px;">
       	</div>
@@ -199,11 +205,15 @@
     	CID = mycourse.getCId();
     	Cname = mycourse.getCname();
     	Cpath = mycourse.getCpath();
+    	img = mycourse.getImg();
+    	desc = mycourse.getDesc();
     	
     	//Converting LinkedLists into Array
     	Integer Cid[] = CID.toArray(new Integer[0]);
     	String Cnm [] = Cname.toArray(new String[0]);
     	String Fpath [] = Cpath.toArray(new String[0]);
+    	imgurl = img.toArray(new String[0]);
+    	dsc = desc.toArray(new String[0]);
     	
     	int p = Cid.length;
     	//System.out.print("Length: "+p);
@@ -211,24 +221,24 @@
     	{
     %>
     
-			<div class="card mb-3">
+			<div class="card mt-3">
 				<div class="row g-0">
           			<div class="col-md-4">
-            			<img src="ePortal.png" class="img-fluid rounded-start" alt="...">
+            			<img src=<%= imgurl[i] %> class="img-fluid rounded-start" alt="courseimage">
           			</div>
           			<div class="col-md-8">        		
             			<div class="card-body">
              			 	<h5 class="card-title">Name: <%= Cnm[i]%></h5>
               				<p class="card-text">UID: <%= Cid[i]%></p>
-            				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum ipsum sunt laborum eos vero minima magni sapiente omnis debitis. Vero incidunt mollitia omnis suscipit nisi fugiat sunt dignissimos! Voluptas?</p>
+            				<p><%= dsc[i]%></p>
              				<!-- p class="h5">What you have uploaded in this Module:</p -->
              				
              				<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target= <%= "#offcanvasRigh"+Cnm[i]%> aria-controls="offcanvasRight">Show More</button>
              				<div class="offcanvas offcanvas-end" tabindex="-1" id=<%= "offcanvasRigh"+Cnm[i]%> aria-labelledby="offcanvasRightLabel">	
-             				<div class="offcanvas-header">
-                  				<h5 id="offcanvasRightLabel">You have Uploaded</h5>
-                  				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
+	             				<div class="offcanvas-header">
+	                  				<h5 id="offcanvasRightLabel">You have Uploaded</h5>
+	                  				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	                			</div>
                 <div class="offcanvas-body">		
     	<%
 		File fobj = new File(Fpath[i]);
@@ -276,13 +286,60 @@
 	<%
 		}
 	%>
-								</div>
-							</div>
+								
+							
 	<%
 	}
 	%>
-             			
-             			
+						
+						</div>
+             			</div>
+             			<!-- Button trigger modal -->
+						<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal"+Cnm[i]%>>
+						  Edit
+						</button>
+						
+						<!-- Modal -->
+						<div class="modal fade" id=<%= "exampleModal"+Cnm[i]%> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">Update Details</h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <form action = "TCourseDEtailsUpdate" method="post">
+							      <div class="modal-body">
+							      	
+							      	<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Course ID</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="cid" value=<%= Cid[i]%> readonly>
+									</div>
+							      	
+							        <div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">image URL</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="imgurl" value=<%= imgurl[i]%> />
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Course Name</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="cname" value=<%= Cnm[i]%> />
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"><%= dsc[i]%></textarea>
+									</div>
+									
+							      </div>
+							      
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							        <button type="submit" class="btn btn-primary">Save changes</button>
+							      </div>
+						      </form>
+						    </div>
+						  </div>
+						</div>
             			</div>
           			</div>
         		</div>

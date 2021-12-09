@@ -27,7 +27,7 @@ public class NewModuleUpload {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
-			String query = "insert into courses values(null,?,?,?,?,?)";
+			String query = "insert into courses values(null,?,?,?,?,?,' ',?,?)";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, Cname);
@@ -35,6 +35,8 @@ public class NewModuleUpload {
 			st.setInt(3, UID);
 			st.setString(4, status);
 			st.setString(5, Udate);
+			st.setString(6, obj.getDesc());
+			st.setString(7, obj.getImgurl());
 			
 			@SuppressWarnings("unused")
 			int c = st.executeUpdate();

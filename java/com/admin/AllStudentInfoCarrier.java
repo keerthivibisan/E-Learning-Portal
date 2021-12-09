@@ -13,7 +13,35 @@ public class AllStudentInfoCarrier {
 	LinkedList <String> filepath = new LinkedList <String> ();
 	LinkedList <String> status = new LinkedList <String> ();
 	LinkedList <Integer> CourseId = new LinkedList <Integer> ();
+	LinkedList <String> jsp = new LinkedList <String> ();
 	
+	LinkedList <String> img = new LinkedList <String> ();
+	LinkedList <String> desc = new LinkedList <String> ();
+	
+	public LinkedList<String> getImg() {
+		return img;
+	}
+
+	public void setImg(LinkedList<String> img) {
+		this.img = img;
+	}
+
+	public LinkedList<String> getDesc() {
+		return desc;
+	}
+
+	public void setDesc(LinkedList<String> desc) {
+		this.desc = desc;
+	}
+
+	public LinkedList<String> getJsp() {
+		return jsp;
+	}
+
+	public void setJsp(LinkedList<String> jsp) {
+		this.jsp = jsp;
+	}
+
 	LinkedList <Integer> extraId = new LinkedList <Integer> (); 
 	LinkedList <String> extraStr = new LinkedList <String> ();
 	

@@ -130,6 +130,7 @@
                     <th scope="col">Uploader Email</th>
                     <th scope="col">Status</th>
                     <th scope="col">UDate</th>
+                    <th scope="col">JSP</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -144,6 +145,7 @@
             	LinkedList <String> filepath = new LinkedList <String> ();
             	LinkedList <String> status = new LinkedList <String> ();
             	LinkedList <Integer> CourseId = new LinkedList <Integer> ();
+            	LinkedList <String> jsp = new LinkedList <String> ();
             	
             	Integer Sid [] = null;
             	String  Sname [] = null;
@@ -153,6 +155,7 @@
             	String FilePath[] = null;
             	String Status[] = null;
             	Integer CourseID [] = null;
+            	String jspfile[] = null;
             	
             	int i = 0;
                 %>
@@ -172,6 +175,7 @@
     				status = Cfetch.getStatus();
     				CourseId = Cfetch.getCourseId();
                 	date = Cfetch.getDate();
+                	jsp = Cfetch.getJsp();
                 	
                 	//Converting all LinkedList into Array
                 	Sid = Sno.toArray(new Integer[0]);
@@ -181,6 +185,7 @@
                 	JDate = date.toArray(new String[0]);
                 	CourseID = CourseId.toArray(new Integer[0]);
                 	Status = status.toArray(new String[0]);
+                	jspfile = jsp.toArray(new String[0]);
                 	//Length of Array
                 	int p = Sid.length;
                 	
@@ -198,6 +203,7 @@
                     <td><%= SEmail[i]%></td>
                     <td><%= Status[i]%></td>
                     <td><%= JDate[i]%></td>
+                    <td><%= jspfile[i]%></td>
                     <td>
                     	<form action = "CourseDelete" method = "post" id="delete-user" onSubmit="return confirm('Are you sure you wish to delete User');">
                     		<input type="text" name="CourseID" value=<%= CourseID[i]%> hidden>

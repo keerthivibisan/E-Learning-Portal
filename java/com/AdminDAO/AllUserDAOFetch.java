@@ -134,9 +134,14 @@ public class AllUserDAOFetch {
 		LinkedList <String> Email = new LinkedList <String> ();
 		LinkedList <String> date = new LinkedList <String> ();
 		
+		LinkedList <String> img = new LinkedList <String> ();
+		LinkedList <String> desc = new LinkedList <String> ();
+		
+		
 		LinkedList <String> filepath = new LinkedList <String> ();
 		LinkedList <String> status = new LinkedList <String> ();
 		LinkedList <Integer> CourseId = new LinkedList <Integer> ();
+		LinkedList <String> jsp = new LinkedList <String> ();
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -155,8 +160,11 @@ public class AllUserDAOFetch {
 				String fp = rd.getString(3);
 				int Tno = rd.getInt(4);
 				String Cstatus = rd.getString(5);
-				String Tmail = rd.getString(10);
-				String d = rd.getNString(6);
+				String Tmail = rd.getString(13);
+				String d = rd.getString(6);
+				String j = rd.getString(7);
+				String i = rd.getString(9);
+				String dsc = rd.getString(8);
 				
 				CourseId.offer(CourseNo);
 				filepath.offer(fp);
@@ -165,6 +173,9 @@ public class AllUserDAOFetch {
 				status.offer(Cstatus);
 				Email.offer(Tmail);
 				date.offer(d);
+				jsp.offer(j);
+				img.offer(i);
+				desc.offer(dsc);
 			}
 			
 			obj.setSno(Sno);
@@ -174,6 +185,9 @@ public class AllUserDAOFetch {
 			obj.setFilepath(filepath);
 			obj.setStatus(status);
 			obj.setDate(date);
+			obj.setJsp(jsp);
+			obj.setImg(img);
+			obj.setDesc(desc);
 			
 			flag = true;
 			

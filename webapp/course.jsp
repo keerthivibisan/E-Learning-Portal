@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<%@ page import="databaseConnect.*, Eportal.servlet.*" %>
+<%@ page import="databaseConnect.*, Eportal.servlet.*, java.util.LinkedList"%>
 
 <%@ page errorPage="logOutError.jsp" %>
 
@@ -148,68 +148,75 @@
             <h5>Featured Courses:</h5>
         </div>
     </div>
-
-   <!--Course content-->
-    <div class="container my-3">
-        <div class="card-deck mb-4">
-            <!--col1-->
-            <div class="card" style="width: 18rem;">
-                <img src="https://techbooky.com/wp-content/uploads/2019/10/java-logo.png" alt="Java" classs="card-img-top">
-   
-                <div class="card-body">
-                    <h5 class="card-title">Learn JAVA</h5>
-                   <span class="badge badge-primary">Rating</span>
-                    <span class="badge badge-warning">4.8/5</span>
-                    <p class="card-text mt-2">Learn Java From Basics to Advanced and work on Projects with mentors Support.</p>
-                    <a href="CourseRegister.jsp" type="button" class="btn btn-primary btn-block">Enroll Now</a>
-                </div>
-   
-                <div class="card-footer">
-                   <small class="text-muted">7-Days Free trail Available</small>
-                </div>
-            </div>
-         
-           <!--Col 2-->
-      
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.redd.it/rxezjyf4ojx41.png" alt="Java" classs="card-img-top">
-   
-                <div class="card-body">
-                    <h5 class="card-title">Learn PYTHON</h5>
-                   <span class="badge badge-primary">Rating</span>
-                    <span class="badge badge-warning">4/5</span>
-                    <p class="card-text mt-2">Learn Python From Basics to Advanced and work on Projects with mentors Support.</p>
-                    <a href="#" type="button" class="btn btn-primary btn-block">Available Soon</a>
-                </div>
-   
-                <div class="card-footer">
-                   <small class="text-muted">7-Days Free trail Available</small>
-                </div>
-            </div>
-         
-
-            <!--Col3-->
-        
-            <div class="card" style="width: 18rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/de/d/dd/MySQL_logo.svg" alt="my-sql" classs="card-img-top">
-   
-                <div class="card-body">
-                    <h5 class="card-title">Learn MySQl</h5>
-                   <span class="badge badge-primary">Rating</span>
-                    <span class="badge badge-warning">4.5/5</span>
-                    <p class="card-text mt-2">Learn MySQl From Basics to Advanced and work on Projects with mentors Support.</p>
-                    <a href="#" type="button" class="btn btn-primary btn-block">Available Soon</a>
-                </div>
-   
-                <div class="card-footer">
-                   <small class="text-muted">7-Days Free trail Available</small>
-                </div>
-            </div>
-        </div>
-        
+    
+    <!-- Fetching available courses from database -->
+    <div class = "container">
+    
+    <%
+    	LinkedList <Integer> id = new LinkedList <Integer>();
+    	LinkedList <String> img = new LinkedList <String>();
+    	LinkedList <String> Cname = new LinkedList <String>();
+    	LinkedList <String> desc = new LinkedList <String>();
+    	LinkedList <String> jsp = new LinkedList <String>();
+    	LinkedList <String> status = new LinkedList <String>();
+    	
+    	Integer ID [] = null;
+    	String imgurl [] = null;
+    	String cname [] = null;
+    	String dsc [] = null;
+    	String JSP [] = null;
+    	String stat [] = null;
+    	
+    	CoursePagePojo carry = new CoursePagePojo();
+    	CoursePgDao  getDetails = new CoursePgDao();
+    	getDetails.GetAllCourses(carry);
+    	
+    	id = carry.getId();
+    	img = carry.getImg();
+    	Cname = carry.getCname();
+    	desc = carry.getDesc();
+    	jsp = carry.getJsp();
+    	status = carry.getStatus();
+    	
+    	ID = id.toArray(new Integer[0]);
+    	imgurl = img.toArray(new String[0]);
+    	cname = Cname.toArray(new String[0]);
+    	dsc = desc.toArray(new String[0]);
+    	JSP = jsp.toArray(new String[0]);
+    	stat = status.toArray(new String[0]);
+    	
+    	int p = ID.length;
+    	
+    	for(int i = 0; i < p; i++)
+    	{
+    		if(stat[i].equalsIgnoreCase("Active"))
+    		{
+    %>
+    	<div class="card mb-3" style="width: 80%; margin: 0 auto; position:relative;">
+		  <div class="row g-0">
+		    <div class="col-md-4">
+		      <img src="<%=imgurl[i]%>" class="img-fluid rounded-start" alt="courseImg">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title"><%=cname[i]%></h5>
+		        <p class="card-text"><%=dsc[i]%></p>
+		        <!-- a href="CourseRegister.jsp" class = "btn btn-primary float-end" style="position: absolute; bottom: 1em; right: 1em;">Enroll Now</a-->
+		        
+		        <form action="CreateHttpSession" method="post" style="position: absolute; bottom: 1em; right: 1em;">
+		        	<input type="submit" class="btn btn-primary" value="Enroll Now"/>
+		        	<input type="text" value=<%= cname[i]%> name="cname" hidden/>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    <%
+    		}
+    	}
+    %>
+    
     </div>
-
-
 
  <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

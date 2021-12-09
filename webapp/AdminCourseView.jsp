@@ -108,17 +108,8 @@
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Available Courses</h1>
-              <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                  <span data-feather="calendar"></span>
-                 
-                </button>
-              </div>
             </div>
-                <%!
+                <%
                 LinkedList <String> name = new LinkedList <String> ();
             	LinkedList <Integer> Sno = new LinkedList <Integer> ();
             	LinkedList <String> Contact = new LinkedList <String> ();
@@ -129,6 +120,9 @@
             	LinkedList <String> status = new LinkedList <String> ();
             	LinkedList <Integer> CourseId = new LinkedList <Integer> ();
             	
+            	LinkedList <String> img = new LinkedList <String> ();
+            	LinkedList <String> desc = new LinkedList <String> ();
+            	
             	Integer Sid [] = null;
             	String  Sname [] = null;
             	String SEmail [] = null;
@@ -137,6 +131,8 @@
             	String FilePath[] = null;
             	String Status[] = null;
             	Integer CourseID [] = null;
+            	String imgurl [] = null;
+            	String dsc[] = null;
             	
             	int i = 0;
                 %>
@@ -156,6 +152,8 @@
     				status = Cfetch.getStatus();
     				CourseId = Cfetch.getCourseId();
                 	date = Cfetch.getDate();
+                	img = Cfetch.getImg();
+                	desc = Cfetch.getDesc();
                 	
                 	//Converting all LinkedList into Array
                 	Sid = Sno.toArray(new Integer[0]);
@@ -169,6 +167,8 @@
                 	JDate = date.toArray(new String[0]);
                 	CourseID = CourseId.toArray(new Integer[0]);
                 	Status = status.toArray(new String[0]);
+                	imgurl = img.toArray(new String[0]);
+                	dsc = desc.toArray(new String[0]);
                 	//Length of Array
                 	int p = Sid.length;
                 	
@@ -178,8 +178,8 @@
                 %>
                 <div class="card mb-3" style="">
 				  <div class="row g-0">
-				    <div class="col-md-4">
-				      <img src="ePortal.png" class="card-img-top" alt="logo">
+				    <div class="col-md-4" style="display: flex; justify-content: center; align-items: center;">
+				      <img src=<%= imgurl[i]%> class="card-img-top" alt="logo">
 				    </div>
 				    <div class="col-md-8">
 				      <div class="card-body">
@@ -242,11 +242,70 @@
 					}
 				%>
 						<!-- OFFCanvas & Card Close Inside Number of Courses For Loop-->
-						</div>
+						
 				<%
 					}
 				%>
+					</div>
 					</div> 
+					
+					<!-- Button trigger modal -->
+						<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal"+CourseID[i]%>>
+						  Edit
+						</button>
+						
+						<!-- Modal -->
+						<div class="modal fade" id=<%= "exampleModal"+CourseID[i]%> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">Update Details</h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <form action = "TCourseDEtailsUpdatEAdmin" method="post">
+							      <div class="modal-body">
+							      	
+							      	<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Course ID</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="cid" value=<%= CourseID[i]%> readonly>
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Uploader ID</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="uid" value=<%= Sid[i]%>>
+									</div>
+							      	
+							        <div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">image URL</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="imgurl" value=<%= imgurl[i]%> />
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Course Name</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="cname" value=<%= Sname[i]%> />
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"><%= dsc[i]%></textarea>
+									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Course Status (Copy & Paste this --> Active)</label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="status" value=<%= Status[i]%>>
+									</div>
+									
+							      </div>
+							      
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							        <button type="submit" class="btn btn-primary">Save changes</button>
+							      </div>
+						      </form>
+						    </div>
+						  </div>
+						</div>
+					
 					</div>
                 </div>
                 </div>

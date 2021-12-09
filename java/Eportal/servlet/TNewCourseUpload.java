@@ -30,6 +30,8 @@ public class TNewCourseUpload extends HttpServlet {
 			System.out.println("ABOVE INPUTS");
 			int UID = Integer.parseInt(req.getParameter("UID"));
 			String Cname = req.getParameter("Cname");
+			String desc = req.getParameter("desc");
+			String img = req.getParameter("img");
 			
 			//--------- Specify Fpath here for the First Time -------------
 			//Windows
@@ -56,6 +58,8 @@ public class TNewCourseUpload extends HttpServlet {
 				carry.setUID(UID);
 				carry.setCname(Cname);
 				carry.setFpath(Fpath);
+				carry.setDesc(desc);
+				carry.setImgurl(img);
 				HttpSession uploadSes = req.getSession();
 				uploadSes.setAttribute("UploaderObj", carry);
 				rd = req.getRequestDispatcher("TVideoInput.jsp");

@@ -7,11 +7,29 @@ public class TmyUploadsCarrier {
 	LinkedList <Integer> CId = new LinkedList <Integer> ();
 	LinkedList <String> Cname = new LinkedList <String> ();
 	LinkedList <String> Cpath = new LinkedList <String> ();
+	LinkedList <String> img = new LinkedList <String> ();
+	LinkedList <String> desc = new LinkedList <String> ();
 	
 	LinkedList <Integer> SId = new LinkedList <Integer> ();
 	LinkedList <String> Sname = new LinkedList <String> ();
 	LinkedList <String> Semail = new LinkedList <String> ();
 	LinkedList <String> Scontact = new LinkedList <String> ();
+	
+	public LinkedList<String> getImg() {
+		return img;
+	}
+
+	public void setImg(LinkedList<String> img) {
+		this.img = img;
+	}
+
+	public LinkedList<String> getDesc() {
+		return desc;
+	}
+
+	public void setDesc(LinkedList<String> desc) {
+		this.desc = desc;
+	}
 	
 	public LinkedList<Integer> getSId() {
 		return SId;
