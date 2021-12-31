@@ -205,7 +205,7 @@
                     <td><%= JDate[i]%></td>
                     <td><%= jspfile[i]%></td>
                     <td>
-                    	<form action = "CourseDelete" method = "post" id="delete-user" onSubmit="return confirm('Are you sure you wish to delete User');">
+                    	<form action = "CourseDelete" method = "post" id="delete-user" onSubmit="return confirm('Are you sure you wish to delete Course');">
                     		<input type="text" name="CourseID" value=<%= CourseID[i]%> hidden>
                     		<input type="text" name="UploaderId" value=<%= Sid[i]%> hidden>
                     		<input type="text" name="FilePath" value=<%= FilePath[i]%> hidden>

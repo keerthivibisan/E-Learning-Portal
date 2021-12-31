@@ -265,7 +265,7 @@
 					System.out.println(Filepath);
 		%>
 				<video src=<%= Filepath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
-	
+				<p><%= Fname%></p>
 		<%
 			}
 			
@@ -278,7 +278,7 @@
 				System.out.println(Filepath );
 		%>
 				<img src= <%= Filepath%> class="img-fluid" alt="Your Upload" width="300">
-	
+				<p><%= Fname%></p>
 	<%
 			}
 	%>
@@ -316,7 +316,7 @@
 									</div>
 							      	
 							        <div class="mb-3">
-									  <label for="exampleFormControlInput1" class="form-label">image URL</label>
+									  <label for="exampleFormControlInput1" class="form-label">image URL (Default Path:<span class="text-success"> ./Courses/<%=Cnm[i]%><%="("+TuID+")" %>/</span><span class = "text-danger">file-name-here</span>)</label>
 									  <input type="text" class="form-control" id="exampleFormControlInput1" name="imgurl" value=<%= imgurl[i]%> />
 									</div>
 									

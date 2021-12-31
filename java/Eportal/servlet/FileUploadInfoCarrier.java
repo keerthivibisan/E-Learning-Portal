@@ -9,6 +9,16 @@ public class FileUploadInfoCarrier {
 	String desc;
 	String imgurl;
 	String status;
+	String jsp;
+	
+
+	public String getJsp() {
+		return jsp;
+	}
+
+	public void setJsp(String jsp) {
+		this.jsp = jsp;
+	}
 
 	public String getStatus() {
 		return status;

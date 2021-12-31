@@ -1,33 +1,52 @@
 package databaseConnect;
 
 import java.sql.*;
+import java.util.LinkedList;
 
-public class MyLearnings {
-	
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+import Eportal.servlet.CourseCarrierPojo;
+import Eportal.servlet.DataBaseDetails;
 
-	public boolean displayCourse(int Sno)
+public class MyLearnings extends DataBaseDetails {
+
+	public boolean displayCourse(int Sno, CourseCarrierPojo obj)
 	{
 		boolean flag = false;
+		
+		LinkedList <String> cname = new LinkedList <String> ();
+		LinkedList <String> desc = new LinkedList <String> ();
+		LinkedList <String> img = new LinkedList <String> ();
+		LinkedList <String> jspfile = new LinkedList <String> ();
 		
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
 			
-			String query = "select * from sturegistercourse where Sno=? and Cname='JAVA'";
+			String query = "select courses.Cno,img,courses.Cname, detail,jspfile from sturegistercourse, courses where Sno = ?";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setInt(1, Sno);
 			
 			ResultSet rs = st.executeQuery();
 			
-			if(rs.next())
+			while(rs.next())
 			{
+				String i = rs.getString(2);
+				String cnm = rs.getString(3);
+				String dsc = rs.getString(4);
+				String j = rs.getString(5);
+				
+				img.offer(i);
+				cname.offer(cnm);
+				desc.offer(dsc);
+				jspfile.offer(j);
 				flag = true;
 			}
+			
+			obj.setCname(cname);
+			obj.setDesc(desc);
+			obj.setImg(img);
+			obj.setJspfile(jspfile);
 			
 			st.close();
 			con.close();

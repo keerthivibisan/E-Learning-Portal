@@ -24,7 +24,6 @@ public class TCourseDetailsUpdate extends HttpServlet
 		carry.setCname(name);
 		carry.setDesc(desc);
 		carry.setImgurl(img);
-		
 		//System.out.println(desc);
 		
 		TeacherCourseEdit update = new TeacherCourseEdit();

@@ -169,7 +169,7 @@
                               
                               <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="img" placeholder="Password" name="img" required>
-                                <label for="img">Cover Image URL</label>
+                                <label for="img">Cover Image URL (Default Path: ./Courses/sample(5)/file-name-here)</label>
                               </div>
 
                               <div class="">

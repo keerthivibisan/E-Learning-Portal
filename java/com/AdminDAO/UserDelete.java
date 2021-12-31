@@ -2,11 +2,9 @@ package com.AdminDAO;
 
 import java.sql.*;
 
-public class UserDelete {
+import Eportal.servlet.DataBaseDetails;
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class UserDelete extends DataBaseDetails {
 	
 	//Delete a student User
 	public boolean deleteStudent(String Email, int UID)
@@ -174,4 +172,37 @@ public class UserDelete {
 		
 		return(flag);
 	}
+	
+	//Delete a student Marks COURSE
+		public boolean StuMarkDelete(int Sid, int CourseId)
+		{
+			boolean flag = false;
+			
+			try
+			{
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection(url, dbname, dbpass);
+				
+				String query = "delete from stucoursemarks where Sno = ? and Cno = ?";
+				
+				PreparedStatement st = con.prepareStatement(query);
+				st.setInt(1, Sid);
+				st.setInt(2,CourseId);
+				
+				int c = st.executeUpdate();
+				
+				System.out.println(c+" /stuSeenVideo table row's Affected");
+				
+				flag = true;
+				
+				st.close();
+				con.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			return(flag);
+		}
 }

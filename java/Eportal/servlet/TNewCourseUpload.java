@@ -3,6 +3,9 @@ package Eportal.servlet;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +39,6 @@ public class TNewCourseUpload extends HttpServlet {
 			//--------- Specify Fpath here for the First Time -------------
 			//Windows
 			//String Fpath = "D:/javaMainProject/E-Portal/src/main/webapp/Courses/"+Cname+"("+UID+")";
-			
 			//Linux 
 			String Fpath = "/usr/local/tomcat/webapps/E-Portal/Courses/"+Cname+"("+UID+")";
 			

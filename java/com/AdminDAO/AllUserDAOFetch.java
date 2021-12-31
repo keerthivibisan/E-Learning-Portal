@@ -5,11 +5,9 @@ import java.util.LinkedList;
 
 import com.admin.AllStudentInfoCarrier;
 
-public class AllUserDAOFetch {
+import Eportal.servlet.DataBaseDetails;
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class AllUserDAOFetch extends DataBaseDetails {
 	
 	//All Students Info Detail's Fetcher
 	public boolean GetAllStudents(AllStudentInfoCarrier obj)
@@ -308,6 +306,67 @@ public class AllUserDAOFetch {
 			obj.setExtraStr(CourseName);
 			obj.setSno(Sno);
 			obj.setName(name);
+			obj.setEmail(Email);
+			obj.setDate(date);
+			
+			flag = true;
+			
+			st.close();
+			con.close();
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return(flag);
+	}
+	
+	//Student Course VIDEO-SEEN DumB detail's Fetcher
+	public boolean GetStuMarks(AllStudentInfoCarrier obj)
+	{
+		boolean flag = false;
+		
+		LinkedList <Integer> mark = new LinkedList <Integer> ();
+		LinkedList <Integer> Sno = new LinkedList <Integer> ();
+		LinkedList <String> Email = new LinkedList <String> ();
+		LinkedList <String> date = new LinkedList <String> ();
+		LinkedList <Integer> CourseId = new LinkedList <Integer> ();
+		LinkedList <String> CourseName = new LinkedList <String> (); 
+		
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, dbname, dbpass);
+			
+			String query = "select stucoursemarks.Cno, courses.cname, stucoursemarks.Sno, studentdetails.email, stucoursemarks.mark, stucoursemarks.dates  from stucoursemarks,courses,studentdetails where stucoursemarks.Cno = courses.Cno and stucoursemarks.Sno = studentdetails.Sno;";
+			
+			Statement st = con.createStatement();
+			
+			ResultSet rd = st.executeQuery(query);
+			
+			while(rd.next())
+			{
+				int cid = rd.getInt(1);
+				String cname = rd.getString(2);
+				int sid = rd.getInt(3);
+				String semail = rd.getString(4);
+				int m = rd.getInt(5);
+				String d = rd.getString(6);
+				
+				CourseId.offer(cid);
+				CourseName.offer(cname);
+				Sno.offer(sid);
+				Email.offer(semail);
+				mark.offer(m);
+				date.offer(d);
+			}
+			
+			obj.setExtraId(mark);
+			obj.setCourseId(CourseId);
+			obj.setName(CourseName);
+			obj.setSno(Sno);
 			obj.setEmail(Email);
 			obj.setDate(date);
 			

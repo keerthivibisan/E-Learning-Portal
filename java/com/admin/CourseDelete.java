@@ -41,7 +41,7 @@ public class CourseDelete extends HttpServlet {
 			//Inner Files delete
 			for(String x : allFiles)
 			{
-				String path = FilePath+"\\"+x;
+				String path = FilePath+"/"+x;
 				File innerFiles = new File(path);
 				System.out.println(path);
 				innerFiles.delete();

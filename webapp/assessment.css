@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.quiz-sec
+{ 
+    color: black;
+    font-size: 1.2em;   
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quiz-sec > div{
+    margin-top: 0.8em;
+    /* font-size: 1em; */
+    font-weight: bold;
+}
+.quiz-sec > div > input{
+    margin-top: 0.5em;
+    margin-left: 1em;
+}
+
+.quiz-sec > div > label{
+    margin-top: 0.5em;
+    margin-left: 0.1em;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+.hidden{
+    display: none;
+}
+
+.my-btn{
+    padding: 0.4em;
+    border: none;
+    border-radius: 0.2em;
+}
+
+.mark-section{
+    /* border: 2px solid red; */
+    text-align: center;
+    font-weight: bold;
+}

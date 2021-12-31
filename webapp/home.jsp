@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@ page import="databaseConnect.*, Eportal.servlet.*" %>
+<%@ page import="databaseConnect.*, Eportal.servlet.*, java.util.*" %>
 
 <%@ page errorPage="logOutError.jsp" %>
 
@@ -215,10 +215,53 @@
 
 <%
 MyLearnings checkCourse = new MyLearnings();
-if(checkCourse.displayCourse(RollNo))
+
+LinkedList <String> cname = new LinkedList <String> ();
+LinkedList <String> desc = new LinkedList <String> ();
+LinkedList <String> img = new LinkedList <String> ();
+LinkedList <String> jspfile = new LinkedList <String> ();
+
+String cnm [] = null;
+String dsc [] = null;
+String imgurl [] = null;
+String jsp [] = null;
+
+CourseCarrierPojo carry = new CourseCarrierPojo();
+
+if(checkCourse.displayCourse(RollNo, carry))
 {
-%>
-    <!--Your Learnings Start-->
+	cname = carry.getCname();
+	desc = carry.getDesc();
+	img = carry.getImg();
+	jspfile = carry.getJspfile();
+	
+	cnm = cname.toArray(new String[0]);
+	dsc = desc.toArray(new String[0]);
+	imgurl = img.toArray(new String[0]);
+	jsp = jspfile.toArray(new String[0]);
+	
+	int p = cnm.length;
+	System.out.println(p);
+	for(int i = 0; i < p; i++)
+	{
+%>	
+	<div class="card mt-3 mb-2" style="width: 80%; margin: 0 auto; position: relative;">
+	  <div class="row g-0">
+	    <div class="col-md-4">
+	      <img src= <%= imgurl[i]%> class="img-fluid rounded-start" alt="courseImage">
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+	        <h5 class="card-title"><%= cnm[i]%></h5>
+	        <p class="card-text"><%= dsc[i]%></p>
+	        
+	        <a href = <%=jsp[i]%> class="btn btn-primary" style = "position: absolute; bottom: 1em; right: 1em;">RESUME</a> 
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    <!--Your Learnings Start
     
         <div class="card mt-4" style="width: 18rem;">
             <img src="https://techbooky.com/wp-content/uploads/2019/10/java-logo.png" alt="Java" classs="card-img-top">
@@ -234,10 +277,14 @@ if(checkCourse.displayCourse(RollNo))
             <div class="card-footer">
                <small class="text-muted">Get certified on Completion of Course</small>
             </div>
-        </div>
+        </div-->
     
-<%}
-else{
+<%
+	}
+}
+
+else
+{
 %>
 	<p>There are no Courses to see, Enroll a Course Now</p>
 

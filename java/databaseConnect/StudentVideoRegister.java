@@ -3,12 +3,10 @@ package databaseConnect;
 import java.sql.*;
 import java.util.Date;
 
-public class StudentVideoRegister {
-	
-	//Database Settings
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+import Eportal.servlet.DataBaseDetails;
+
+public class StudentVideoRegister extends DataBaseDetails
+{
 
 	public String getDate()
 	{
@@ -85,6 +83,32 @@ public class StudentVideoRegister {
 		
 		
 		return(flag);
+	}
+	
+	public Boolean CompletedAssessment(int Sno, int Cno)
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, dbname, dbpass);
+			String query = "select * from stucoursemarks where Cno=? and Sno=?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, Cno);
+			st.setInt(2, Sno);
+			
+			ResultSet rd = st.executeQuery();
+			
+			if(rd.next())
+			{
+				return(true);
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		return(false);
 	}
 	
 }

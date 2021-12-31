@@ -22,6 +22,7 @@ public class TCourseDEtailsUpdatEAdmin extends HttpServlet
 		String desc = req.getParameter("desc");
 		int Uid = Integer.parseInt(req.getParameter("uid"));
 		String status = req.getParameter("status");
+		String jsp = req.getParameter("jspfile");
 		
 		FileUploadInfoCarrier carry = new FileUploadInfoCarrier();
 		carry.setCid(id);
@@ -30,7 +31,7 @@ public class TCourseDEtailsUpdatEAdmin extends HttpServlet
 		carry.setImgurl(img);
 		carry.setUID(Uid);
 		carry.setStatus(status);
-		
+		carry.setJsp(jsp);
 		//System.out.println(desc);
 		
 		TeacherCourseEdit update = new TeacherCourseEdit();

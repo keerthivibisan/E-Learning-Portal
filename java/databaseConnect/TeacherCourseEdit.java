@@ -21,7 +21,7 @@ public class TeacherCourseEdit extends DataBaseDetails
 			st.setInt(4, obj.getCid());
 			
 			int c = st.executeUpdate();
-			System.out.println("Rows/ "+c);
+//			System.out.println("Rows/ "+c);
 			if(c==1)
 			{
 				flag = true;
@@ -41,7 +41,7 @@ public class TeacherCourseEdit extends DataBaseDetails
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
-			String query = "update courses set img = ?, Cname=?, detail=?, UploaderTno=?, status=? where Cno =?";
+			String query = "update courses set img = ?, Cname=?, detail=?, UploaderTno=?, status=?, jspfile=? where Cno =?";
 			
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, obj.getImgurl());
@@ -49,7 +49,8 @@ public class TeacherCourseEdit extends DataBaseDetails
 			st.setString(3, obj.getDesc());
 			st.setInt(4, obj.getUID());
 			st.setString(5, obj.getStatus());
-			st.setInt(6, obj.getCid());
+			st.setString(6, obj.getJsp());
+			st.setInt(7, obj.getCid());
 			
 			int c = st.executeUpdate();
 			System.out.println("Rows/ "+c);

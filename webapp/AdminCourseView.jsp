@@ -122,6 +122,7 @@
             	
             	LinkedList <String> img = new LinkedList <String> ();
             	LinkedList <String> desc = new LinkedList <String> ();
+            	LinkedList <String> jsp = new LinkedList <String> ();
             	
             	Integer Sid [] = null;
             	String  Sname [] = null;
@@ -133,6 +134,7 @@
             	Integer CourseID [] = null;
             	String imgurl [] = null;
             	String dsc[] = null;
+            	String jspfile[] = null;
             	
             	int i = 0;
                 %>
@@ -154,6 +156,7 @@
                 	date = Cfetch.getDate();
                 	img = Cfetch.getImg();
                 	desc = Cfetch.getDesc();
+                	jsp = Cfetch.getJsp();
                 	
                 	//Converting all LinkedList into Array
                 	Sid = Sno.toArray(new Integer[0]);
@@ -169,6 +172,8 @@
                 	Status = status.toArray(new String[0]);
                 	imgurl = img.toArray(new String[0]);
                 	dsc = desc.toArray(new String[0]);
+                	jspfile = jsp.toArray(new String[0]);
+                	
                 	//Length of Array
                 	int p = Sid.length;
                 	
@@ -185,6 +190,7 @@
 				      <div class="card-body">
 				        <p class="card-text h5">Course ID: <%= CourseID[i]%></p>
 				    	<p class="card-text h5">Course Name: <%= Sname[i]%></p>
+				    	<p class="card-text">JSP-File: <%= jspfile[i]%></p>
 				    	<p class="card-text">Uploader ID: <%= Sid[i]%></p>
 				    	<p class="card-text">Uploader Email: <%= SEmail[i]%></p>
 				    	<p class="card-text">Upload Date: <%= JDate[i]%></p>
@@ -224,6 +230,7 @@
 							System.out.println(relativePath);
 				%>
 							<video src=<%= relativePath%> type="video/mp4" class="img-fluid mt-1" controls autoplay width="300">Not Supported Format</video>
+							<p><%= Fname%></p>
 				<%
 						}
 						
@@ -236,7 +243,7 @@
 							System.out.println(relativePath);
 				%>    
 					  		<img src= <%= relativePath%> class="img-fluid" alt="Your Upload" width="300">
-                  
+                  			<p><%= Fname%></p>
                <%
 						}
 					}
@@ -274,9 +281,14 @@
 									  <label for="exampleFormControlInput1" class="form-label">Uploader ID</label>
 									  <input type="text" class="form-control" id="exampleFormControlInput1" name="uid" value=<%= Sid[i]%>>
 									</div>
+									
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">JSP - File <span class="ps-2 text-danger"><i class="fas fa-exclamation-triangle"></i> (filename.jsp)</span></label>
+									  <input type="text" class="form-control" id="exampleFormControlInput1" name="jspfile" value=<%= jspfile[i]%> />
+									</div>
 							      	
 							        <div class="mb-3">
-									  <label for="exampleFormControlInput1" class="form-label">image URL</label>
+									  <label for="exampleFormControlInput1" class="form-label">image URL (Default Path:<span class="text-success"> ./Courses/<%=Sname[i]%><%="("+Sid[i]+")" %>/</span><span class = "text-danger">file-name-here</span>)</label>
 									  <input type="text" class="form-control" id="exampleFormControlInput1" name="imgurl" value=<%= imgurl[i]%> />
 									</div>
 									

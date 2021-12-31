@@ -20,7 +20,7 @@
 	 <!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="./assessment.css">
 	
 	<link rel="stylesheet" href="videoLessonPage.css">
 	
@@ -47,7 +47,10 @@
 	int RollNo;
 	String Email;
 	String PNumber;
+	
+	//We Must Enter
 	String CourseName = "Java";
+	int cid = 1;
 	%>
 	
 	<%
@@ -80,6 +83,11 @@
 	RollNo = fetch.getRollNo();
 	Email = fetch.getEmail();
 	PNumber = fetch.getPNumber();
+	
+	HttpSession mark = request.getSession();
+	mark.setAttribute("StuObj", fetch);
+	mark.setAttribute("Cid", cid);
+	mark.setAttribute("Sname",Name);
 	%>
 	
     <header>
@@ -155,20 +163,22 @@
     </header>
 	
 	<!-- ***** VIDEO Features ***** -->
+	
+	<!-- Object for DAO video checkings -->
+	<%StudentVideoRegister check = new StudentVideoRegister();%>
 	    <div class="content row-Flex">
         <!--Side Lessons SHOWCASE-->
         <div id="Locked-boxes" class="lesson-boxes card">
+        
             <div class="box">
                 <p class="active" onclick="ShowVideo('Courses/JAVA/sample2.mp4','JavaV1')">Lesson 1</p>
             </div>
+            
             <div class="box">
-                <p onclick="ShowVideo('Courses/JAVA/sample.mp4','JavaV2')">Lesson 2</p>
+                <p onclick="ShowVideo('Courses/JAVA/sample1.mp4','JavaV2')">Lesson 2</p>
              <%
              	//If user saw before video unlocks next
-             	StudentVideoRegister check = new StudentVideoRegister();
-             	boolean flag = check.AlreadySaw(RollNo, "JavaV1");
-             	
-             	if(flag == false)
+             	if(check.AlreadySaw(RollNo, "JavaV1") == false)
              	{
              		
              %>
@@ -178,28 +188,97 @@
              	}
              %>
             </div>
+            
             <div class="box">
-                <p>Lesson 3</p>
+                <p onclick="ShowVideo('Courses/JAVA/sample3.mp4','JavaV3')">Lesson 3</p>
+               <%
+             	//If user saw before video unlocks next
+             	if(check.AlreadySaw(RollNo, "JavaV2") == false)
+             	{
+             		
+             	%>
                 <div class="box-lock"><i class="fas fa-lock"></i></div>
+             <%
+             	}
+             %>
             </div>
 
-            <div class="box">
+            <!-- div class="box">
                 <p>Lesson 4</p>
                 <div class="box-lock"><i class="fas fa-lock"></i></div>
-            </div>
-
-            <div class="box">
-                <p>Lesson 5</p>
+            </div -->
+            
+            <div class="box pb-2">
+            	<!-- Here Assessment -->
+            	<!-- <section class="quiz-sec" id="quiz-section"></section> -->
+			    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="StartTimer(20, 'quiz-section', quiz), StartAssessment(quiz, 20, 'quiz-section')">Assessment</button>
+			    
+			      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			        <div class="modal-dialog">
+			          <div class="modal-content">
+			            <div class="modal-header">
+			              <h5 class="modal-title" id="exampleModalLabel">Assessment</h5>
+			              <p class="modal-title h4 ms-auto"><span id="timer">20</span> sec</p>
+			              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			            </div>
+				
+						<%
+						if(!check.CompletedAssessment(RollNo, cid))
+						{
+						%>
+			
+			            <form name="quiz-section" class="modal-body quiz-sec" id="quiz-section">
+			              <!-- Form Object JSON-->
+			              
+			              
+			            </form>
+			            <p id="mark-display" class="mark-section"></p>
+			            <div class="modal-footer">
+			              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			              <button class="btn-danger my-btn" id="testBtn" onclick="EvaluateMark('quiz-section', quiz)">Submit</button>
+			            </div>
+			            <% }
+						else
+						{
+			            %>
+						<p class="mark-section">You have Cleared the Assessment</p>
+						<div class="modal-footer">
+			              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			            </div>
+						<%}%>
+			          </div>
+			        </div>
+			      </div>
+			      
+				<%
+             	//If user saw before video unlocks next
+             	if(check.AlreadySaw(RollNo, "JavaV3") == false)
+             	{
+             		
+             	%>
                 <div class="box-lock"><i class="fas fa-lock"></i></div>
+                <%
+             	}
+             	%>
             </div>
+            
+             <div class="box mt-2 pb-2">
+                <a href="certificatePDF.jsp" class="btn btn-outline-success">Certificate</a>
+                <%if(!check.CompletedAssessment(RollNo, cid))
+				{
+				%>
+                <div class="box-lock"><i class="fas fa-lock"></i></div>
+            	<%} %>
+            </div> 
+            
         </div>
 
-        <!--Video Player-->
+        <!--Video Player ----------------------------------------------------------------------->
         <div class="video-c mt-3">
 
             <div class="videoWITHControl">
 
-                <video id = "video" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" class="video" onplay="StartTimer()"></video>
+                <video id = "video" src="Courses/intro.mp4" class="video" onplay="StartTimer()"></video>
 
                 <div class="controls">
                     <div class="blue">
@@ -227,11 +306,6 @@
                 <p><span id="runningTime"  class="text-success">0.00</span> / <span id="TotalTime" class="text-danger">0.00</span></p>
                 <small class="text-muted">(Watch this lesson fully to Unlock next)</small>
             </div>
-    
-			<div class = "Question-section mt-5">
-				<p class="h3">ASSESSMENT</p>
-				
-			</div>
         </div>
 
     </div>
@@ -242,7 +316,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+	
+	<script src="./assessment.js"></script>
     <script src="VideoPlayer.js"></script>
     <script src = "ContactUpdate.js"></script>
     <script>
