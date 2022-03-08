@@ -43,7 +43,7 @@
 <h2>📸 Gallery</h2>
 
 <img src = './ReadmeSupport/1.png'/>
-#####
+###
 <img src = './ReadmeSupport/2.png'>
-#####
+###
 <img src = './ReadmeSupport/3.png'>
