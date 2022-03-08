@@ -1,12 +1,7 @@
-<h2>Hello ✋</h2>
-<p><strong>What is this: </strong>A Web Application</p>
-<p><strong>Title: </strong>E-Learning Portal &#128214</p>
-<p><strong>Contain's: </strong>Mentor's or Teacher's user-site and Student user-site.</p>
-<p>( <strong>This is my 1️⃣<sup>st</sup> web project</strong> )</p>
+<h2>Hello 👋</h2>
+<p>This is an 🌐 Online <b>E - Learning Portal</b>, with <b><em>Video Content Lock Feature.</em></b>
 
-<hr>
-
-<h3>Languages and Tools: </h3>
+<h3>⚡Language's and Tools Used: </h3>
 
 <p>
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="35"/>
@@ -17,26 +12,38 @@
 
 <hr>
 
-<h3>Find 📄</h3>
+<h2>⚠️ Server Runtime Specific</h2>
+<h4>Java Version 📌 16.0.1</h4>
+<h4>Runtime 😺 Tomcat 9.0.5</h4>
 
-<ol>
-    <li>JAVA Folder</li>
-    <p>This Contains two Packages</p>
-        <ol>
-            <li>Eportal/servlet</li>
-            <p>This Contains all Processing <strong>Servlets</strong>, <strong>POJO</strong> classes. </p>
-            <li>databaseConnect</li>
-            <p>This Contains all Database connecting <strong>DAO</strong> classes. </p>
-        </ol>
-    <li>webapp Folder</li>
-    <p>This Contains Course folder, WEB-INF and HTML, CSS, JSP files.</p>
-        <ol>
-            <li>Courses Folder</li>
-            <p><strong>Storage</strong>, where Teacher uploaded contents such as course videos and all are stored.</p>
-            <li>WEB-INF</li>
-            <p>Inside this folder there is lib folder which contains External <strong>JAR's</strong>.</p>
-             <li>Other Files</li>
-            <p>Other all are HTML,CSS,JSP,PNG's which are for Frontend.</p>
-        </ol>
-        <p><strong>NOTE: </strong>All files which starts with <b>T</b> stands for <b>Teachers</b> user-site files and rest Student's user-site's.</p>
-</ol>
+<h2>🚢 Deployment (branch 2)</h1>
+
+<b><i>⚠️ This Deployment Need's Docker installed</i></b>
+
+<p>In branch 2 you can find <b>🐟 Dockerfile and docker-compose file.</b></p>
+
+    docker-compose build
+    docker-compose up
+
+<h4>Out</h4>
+
+    localhost:8888/E-Portal
+    yourIp:8888/E-Portal
+
+<h2><i>else</i></h2>
+<b>🟢 You can find a <i>.war</i> file in branch 2 you can Deploy it Directly with Tomcat.</b>
+
+<hr>
+
+<h2>🗃️ Database Deployment</h2>
+<p>The <b>.sql file is also given in branch 2</b> you need to deploy it with SQl Databsae ( MySQL ) and change the Database settings in the <b>config File.</b></p>
+
+<hr>
+
+<h2>📸 Gallery</h2>
+
+<img src = './ReadmeSupport/1.png'/>
+#####
+<img src = './ReadmeSupport/2.png'>
+#####
+<img src = './ReadmeSupport/3.png'>
