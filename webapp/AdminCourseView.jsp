@@ -100,6 +100,12 @@
                   </a>
                 </li>
                 
+                <li class="nav-item nav-ele-hover">
+                  <a class="text-white nav-link" href="AdminTestMarks.jsp">
+                    Student's Marks
+                  </a>
+                </li>
+                
                 
               </ul>
             </div>

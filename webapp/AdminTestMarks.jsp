@@ -101,7 +101,7 @@
                 </li>
                 
                 <li class="nav-item nav-ele-hover activate">
-                  <a class="text-white nav-link" href="AdminStudentCourseVideoSee.jsp">
+                  <a class="text-white nav-link" href="AdminTestMarks.jsp">
                     Student's Marks
                   </a>
                 </li>
