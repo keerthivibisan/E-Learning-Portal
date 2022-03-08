@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - 8888:8080
+    # volumes:
+    #  - /home/ubuntu/data:/usr/local/tomcat/webapps
+    container_name: Elearningportal
