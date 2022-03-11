@@ -2,14 +2,11 @@ package databaseConnect;
 
 import java.sql.*;
 
+import Eportal.servlet.DataBaseDetails;
 import Eportal.servlet.NavbarProfileInfo;
 
 
-public class NavbarProfileFetch {
-	
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class NavbarProfileFetch extends DataBaseDetails {
 
 	public boolean ProfileFetch(String email,NavbarProfileInfo obj)
 	{

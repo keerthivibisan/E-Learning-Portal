@@ -3,11 +3,9 @@ package databaseConnect;
 import java.sql.*;//1.
 
 import com.admin.GoogleSignINBlock;
-public class UserChecker {
-	
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+
+import Eportal.servlet.DataBaseDetails;
+public class UserChecker extends DataBaseDetails{
 	
 	public boolean ExistingUserCheck(String Email)
 	{

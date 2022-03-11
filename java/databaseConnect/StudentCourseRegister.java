@@ -2,11 +2,9 @@ package databaseConnect;
 
 import java.sql.*;
 
-public class StudentCourseRegister {
+import Eportal.servlet.DataBaseDetails;
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class StudentCourseRegister extends DataBaseDetails{
 	
 	int count = 0;
 	

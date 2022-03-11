@@ -5,14 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import Eportal.servlet.DataBaseDetails;
 import Eportal.servlet.GamifyJSPScoreCarrier;
 
-public class GamifyJSPSupport {
-	
-	//Database Settings
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass= "test";
+public class GamifyJSPSupport extends DataBaseDetails{
 		
 	public boolean AlreadyAttended(int Sid,GamifyJSPScoreCarrier obj)
 	{

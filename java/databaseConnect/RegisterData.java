@@ -2,9 +2,11 @@ package databaseConnect;
 import java.sql.*;
 import java.util.Random;
 
+import Eportal.servlet.DataBaseDetails;
 
 
-public class RegisterData {
+
+public class RegisterData extends DataBaseDetails {
 	
 	public static int generateCode()
 	{
@@ -14,9 +16,7 @@ public class RegisterData {
 	}
 
 	int Sno = generateCode();
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+
 	String query = "insert into studentdetails values(?,?,?,?,null,?,null)";
 	
 	public boolean RegisterUserData(String UserName,String phone,String Email,String Finalpassword)

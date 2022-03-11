@@ -51,6 +51,7 @@ public class StudentVideoRegister extends DataBaseDetails
 	
 	public boolean VideoSeenNow(String VideoId, int Sid, int Cid, String date)
 	{
+		System.out.println(Sid+"---"+Cid+"--"+VideoId);
 		boolean flag = false;
 		
 		try

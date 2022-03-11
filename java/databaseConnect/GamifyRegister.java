@@ -1,9 +1,12 @@
 package databaseConnect;
 
 import java.util.Date;
+
+import Eportal.servlet.DataBaseDetails;
+
 import java.sql.*;
 
-public class GamifyRegister {
+public class GamifyRegister extends DataBaseDetails {
 
 	public String GetDate()
 	{
@@ -12,11 +15,6 @@ public class GamifyRegister {
 		
 		return(n);
 	}
-	
-	//Database Settings
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass= "test";
 	
 	public boolean AlreadyAttended(int Sid)
 	{

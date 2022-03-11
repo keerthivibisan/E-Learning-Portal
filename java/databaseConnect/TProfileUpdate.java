@@ -2,11 +2,9 @@ package databaseConnect;
 
 import java.sql.*;
 
-public class TProfileUpdate {
+import Eportal.servlet.DataBaseDetails;
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class TProfileUpdate extends DataBaseDetails{
 	
 	public boolean UpdateContact(int id, String Contact)
 	{

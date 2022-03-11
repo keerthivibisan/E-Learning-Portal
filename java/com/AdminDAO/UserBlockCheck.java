@@ -1,11 +1,9 @@
 package com.AdminDAO;
 
 import java.sql.*;
-public class UserBlockCheck {
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+import Eportal.servlet.DataBaseDetails;
+public class UserBlockCheck extends DataBaseDetails {
 	
 	//Student Block Check
 	public boolean StuBlockCheck(int Sid)

@@ -39,10 +39,12 @@ public class UserVideoSee extends HttpServlet {
 		NavbarProfileInfo doget = new NavbarProfileInfo();
 		
 		CourseInfoFetch get = new CourseInfoFetch();
-		get.CourseDetails(Cname, doget);
+		boolean what = get.CourseDetails(Cname, doget);
+		System.out.println("What: "+what);
 		
+		// --------- ERROR HERE -----------
 		int Cid = doget.getCourseUID();
-		//Success System.out.println(Cid);
+		System.out.println(Cid);
 		
 		
 		//Video Registering on see--------

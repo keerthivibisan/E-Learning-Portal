@@ -2,13 +2,10 @@ package databaseConnect;
 
 import java.sql.*;
 
+import Eportal.servlet.DataBaseDetails;
 import Eportal.servlet.PasswordHELPERCarrier;
 
-public class PasswordFetcherHELPER {
-	
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class PasswordFetcherHELPER extends DataBaseDetails{
 
 	public boolean getPassword(PasswordHELPERCarrier fetch)
 	{

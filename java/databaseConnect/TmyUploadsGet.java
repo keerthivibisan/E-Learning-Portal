@@ -3,13 +3,10 @@ package databaseConnect;
 import java.sql.*;
 import java.util.LinkedList;
 
+import Eportal.servlet.DataBaseDetails;
 import Eportal.servlet.TmyUploadsCarrier;
 
-public class TmyUploadsGet {
-
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class TmyUploadsGet extends DataBaseDetails{
 	
 	public boolean getMyUploads(int UID, TmyUploadsCarrier obj)
 	

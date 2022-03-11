@@ -2,14 +2,11 @@ package databaseConnect;
 
 import java.sql.*;
 
+import Eportal.servlet.DataBaseDetails;
 import Eportal.servlet.FileUploadInfoCarrier;
 
-public class NewModuleUpload {
+public class NewModuleUpload extends DataBaseDetails{
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
-	
 	public boolean CourseRegister(FileUploadInfoCarrier obj)
 	{
 		boolean flag = false;

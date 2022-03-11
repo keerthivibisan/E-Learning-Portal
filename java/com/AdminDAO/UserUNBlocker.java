@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class UserUNBlocker {
+import Eportal.servlet.DataBaseDetails;
 
-	String url = "jdbc:mysql://10.10.110.204:3306/eportal";
-	String dbname = "test";
-	String dbpass = "test";
+public class UserUNBlocker extends DataBaseDetails {
 	
 	public boolean StuUserUNBlock(int Sid)
 	{
