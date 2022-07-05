@@ -16,8 +16,8 @@ public class PasswordEMAILSENDER {
 	{
 		boolean flag = false;
 		
-		String fromMail = "skvtech2211@gmail.com";
-		String fromPass = "bzareuxawgxkounx";
+		String fromMail = "";
+		String fromPass = "";
 		
 		//Setting up Mail Host
 		Properties pr = new Properties();

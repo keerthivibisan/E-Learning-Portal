@@ -17,6 +17,7 @@ public class CourseInfoFetch extends DataBaseDetails {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, dbname, dbpass);
+			System.out.println(cname);
 			String query = "select Cno,Tname,Temail from courses,teacher where courses.UploaderTno=teacher.Tno and Cname = ?"; //We must make it Dynamic
 			PreparedStatement st = con.prepareStatement(query);
 			System.out.println(query);

@@ -27,8 +27,8 @@ public class TverifyMailSender {
 		
 		try
 		{
-			String fromMail = "skvtech2211@gmail.com";
-			String pass = "bzareuxawgxkounx";
+			String fromMail = "";
+			String pass = "";
 			String toMail = user.getTemail();
 			
 			Properties pr = new Properties();
