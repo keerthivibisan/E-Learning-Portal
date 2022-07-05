@@ -14,7 +14,7 @@
 <h2>📧 Email & Password</h2>
 <h5>📍 Must be added to make Email Service Work</h5>
 <ul>
-    <li>/java/Eportal/servlet/<b>PasswordEMAILSENDER.java<?b></li>
+    <li>/java/Eportal/servlet/<b>PasswordEMAILSENDER.java</b></li>
     <li>/java/Eportal/servlet/<b>SendVerifyMail.java</b></li>
     <li>/java/Eportal/servlet/<b>TverifyMailSender.java</b></li>
 </ul>
