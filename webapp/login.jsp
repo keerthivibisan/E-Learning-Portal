@@ -15,7 +15,7 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	
 	
-	<meta name="google-signin-client_id" content="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com">
+	<meta name="google-signin-client_id" content="YOUR CLIENT ID HERE">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 	<style>
 		@media(max-width: 700px)
